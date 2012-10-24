@@ -1,0 +1,54 @@
+﻿@model MvcStore2.Models.DEPOT
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+
+<h2>Borrar</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>ALMACEN</legend>
+
+    <div class="display-label">NOMBRE</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.NAME)
+    </div>
+
+    <div class="display-label">DIRECCION</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ADDRESS)
+    </div>
+
+    <div class="display-label">TELEFONO</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.TELEPHONE)
+    </div>
+
+    <div class="display-label">PAIS</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.COUNTRY)
+    </div>
+
+    <div class="display-label">FAX</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.FAX)
+    </div>
+
+    <div class="display-label">EMAIL</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.EMAIL)
+    </div>
+
+    <div class="display-label">REGION</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.REGION.NAME)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Regresar", "Index")
+    </p>
+}

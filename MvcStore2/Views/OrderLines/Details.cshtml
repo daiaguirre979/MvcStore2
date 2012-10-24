@@ -1,0 +1,40 @@
+﻿@model MvcStore2.Models.ORDER_LINES
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>ORDER_LINES</legend>
+
+    <div class="display-label">CANTIDAD</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CANTIDAD)
+    </div>
+
+    <div class="display-label">PRECIO</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PRECIO)
+    </div>
+
+    <div class="display-label">ASSIGNED_AMOUNT</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ASSIGNED_AMOUNT)
+    </div>
+
+    <div class="display-label">ORDER</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ORDER.CP_ENVIO)
+    </div>
+
+    <div class="display-label">PRODUCT</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PRODUCT.NAME)
+    </div>
+</fieldset>
+<p>
+    <!-- @Html.ActionLink("Edit", "Edit", new { id=Model.ID }) | -->
+    @Html.ActionLink("Back to List", "Index")
+</p>

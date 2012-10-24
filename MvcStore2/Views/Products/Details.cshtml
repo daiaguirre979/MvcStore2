@@ -1,0 +1,41 @@
+﻿@model MvcStore2.Models.PRODUCT
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Depot.cshtml";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>PRODUCT</legend>
+
+    <div class="display-label">PRICE</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PRICE)
+    </div>
+
+    <div class="display-label">NAME</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.NAME)
+    </div>
+
+    <div class="display-label">DESCRIPTION</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.DESCRIPTION)
+    </div>
+
+    <div class="display-label">REASONABLE_MAX</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.REASONABLE_MAX)
+    </div>
+
+    <div class="display-label">SUPPLIER</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SUPPLIER.NAME)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

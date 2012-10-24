@@ -1,0 +1,112 @@
+﻿@model MvcStore2.Models.ORDER
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Sales.cshtml";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>ORDER</legend>
+
+    <div class="display-label">CP_ENVIO</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CP_ENVIO)
+    </div>
+    <!--
+    <div class="display-label">SENDING_COUNTRY</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SENDING_COUNTRY)
+    </div>
+
+    <div class="display-label">SENDING_DOOR</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SENDING_DOOR)
+    </div>
+
+    <div class="display-label">SENDING_NUMBER</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SENDING_NUMBER)
+    </div>
+
+    <div class="display-label">SENDING_STREET</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SENDING_STREET)
+    </div>
+
+    <div class="display-label">PAYMENT_FORM</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PAYMENT_FORM)
+    </div>
+
+    <div class="display-label">ELABORATION_DATE</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ELABORATION_DATE)
+    </div>
+
+    <div class="display-label">EMPLOYEE</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.EMPLOYEE.LOGIN)
+    </div>
+    -->
+    <div class="display-label">CUSTOMER</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CUSTOMER.NAME)
+    </div>
+    <!--
+    <div class="display-label">STATE</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.STATE)
+    </div> -->
+</fieldset>
+
+
+<fieldset>
+    <legend>PRODUCTOS</legend>
+    <table class="large">
+        <tr>
+            <th>
+                PRODUCT
+            </th>
+            <th>
+                CANTIDAD
+            </th>
+            <th>
+                PRECIO
+            </th>
+            <th>
+                ASSIGNED_AMOUNT
+            </th>            
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model.ORDER_LINES) {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PRODUCT.NAME)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CANTIDAD)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PRECIO)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ASSIGNED_AMOUNT)
+                </td>                
+                
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+                    @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+                    @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+                </td>
+            </tr>
+        }
+   </table>
+
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

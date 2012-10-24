@@ -1,0 +1,48 @@
+﻿@model MvcStore2.Models.EMPLOYEE
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>EMPLOYEE</legend>
+
+    <div class="display-label">LOGIN</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.LOGIN)
+    </div>
+
+    <div class="display-label">PASSWORD</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PASSWORD)
+    </div>
+
+    <div class="display-label">CHARGE</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CHARGE)
+    </div>
+
+    <div class="display-label">NAME</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.NAME)
+    </div>
+
+    <div class="display-label">TELEPHONE</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.TELEPHONE)
+    </div>
+
+    <div class="display-label">DEPOT</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.DEPOT.NAME)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}

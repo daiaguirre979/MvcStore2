@@ -1,0 +1,88 @@
+﻿@model MvcStore2.Models.ORDER
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>ORDER</legend>
+
+    <div class="display-label">CP_ENVIO</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CP_ENVIO)
+    </div>
+
+    <div class="display-label">SENDING_COUNTRY</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SENDING_COUNTRY)
+    </div>
+
+    <div class="display-label">SENDING_DOOR</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SENDING_DOOR)
+    </div>
+
+    <div class="display-label">SENDING_NUMBER</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SENDING_NUMBER)
+    </div>
+
+    <div class="display-label">SENDING_STREET</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SENDING_STREET)
+    </div>
+
+    <div class="display-label">PAYMENT_FORM</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PAYMENT_FORM)
+    </div>
+
+    <div class="display-label">ELABORATION_DATE</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ELABORATION_DATE)
+    </div>
+
+    <div class="display-label">CHECK_DEPOT_DATE</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CHECK_DEPOT_DATE)
+    </div>
+
+    <div class="display-label">ATTENTION_DATE</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ATTENTION_DATE)
+    </div>
+
+    <div class="display-label">SENDING_LIST_DATE</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SENDING_LIST_DATE)
+    </div>
+
+    <div class="display-label">STORAGE_DEPOT_DATE</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.STORAGE_DEPOT_DATE)
+    </div>
+
+    <div class="display-label">EMPLOYEE</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.EMPLOYEE.LOGIN)
+    </div>
+
+    <div class="display-label">CUSTOMER</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CUSTOMER.NAME)
+    </div>
+
+    <div class="display-label">STATE</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.STATE)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}

@@ -1,0 +1,22 @@
+﻿@if (@ViewBag.boss != null)
+{
+    <text> 
+
+    <div class="display-label">NOMBRE</div>
+    <div class="display-field">
+        @ViewBag.boss.NAME 
+    </div>
+    <div class="display-label">TELEFONO</div>
+    <div class="display-field">
+        @ViewBag.boss.TELEPHONE
+    </div>
+    <p>
+        @Html.ActionLink("Mas detalles", "Details", "Boss", new { id = @ViewBag.boss.ID })
+    </p>    
+
+    </text>
+}
+else
+{ 
+   @:[ @Html.ActionLink("Registrar", "Create", "Boss") ]
+}

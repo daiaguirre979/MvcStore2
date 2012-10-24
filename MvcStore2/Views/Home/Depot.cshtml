@@ -1,0 +1,13 @@
+﻿@{
+    ViewBag.Title = "Depot";
+    Layout = "~/Views/Shared/_Depot.cshtml";
+}
+<nav>
+    <h2>Orders</h2>
+    <ul>
+        <li>@Html.ActionLink("No Atendidos", "NotAttended", "Orders")</li>
+        <li>@Html.ActionLink("En Atencion", "InAttention", "Orders")</li>
+        <li>@Html.ActionLink("Listo para Enviar", "ReadyToSend", "Orders")</li>
+        <li>@Html.ActionLink("Enviados", "Sent", "Orders")</li>
+    </ul>
+</nav>

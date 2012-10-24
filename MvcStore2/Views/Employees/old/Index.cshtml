@@ -1,0 +1,64 @@
+﻿@model IEnumerable<MvcStore2.Models.EMPLOYEE>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Depot.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            LOGIN
+        </th>
+        <th>
+            PASSWORD
+        </th>
+        <th>
+            CHARGE
+        </th>
+        <th>
+            NAME
+        </th>
+        <th>
+            TELEPHONE
+        </th>
+        <th>
+            DEPOT
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.LOGIN)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PASSWORD)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CHARGE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NAME)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TELEPHONE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DEPOT.NAME)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,97 @@
+﻿@model MvcStore2.Models.ORDER
+@{
+    ViewBag.Title = "Sales";
+    Layout = "~/Views/Shared/_Sales.cshtml";
+}
+
+<h2>Create</h2>
+
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/search.customer.js")" type="text/javascript"></script>
+
+<fieldset>
+    <legend>DATOS DE CLIENTE</legend>
+    <p>
+        CODIGO :
+        <input type="text" name="txtIdNo"  id="dni" maxlength="8"/>            
+        <input type="button" value="Search" name="btnSearch" id="btnSearch"/>
+    </p>        
+    <p>
+        <label id="message"></label>
+    </p>
+    
+    <div id="link" style="display:none;" >
+        CLIENTE : @Html.ActionLink("Registrar Cliente", "Create", "Customers")
+    </div>
+
+</fieldset>
+
+
+@using (Html.BeginForm("Create", "Orders"))
+{
+    @Html.ValidationSummary(true)
+    <fieldset>  
+        <legend>ORDER</legend>
+        
+        <div class="hidden-field">
+            @Html.EditorFor(model => model.CUSTOMER_ID)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.CP_ENVIO)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.CP_ENVIO)
+            @Html.ValidationMessageFor(model => model.CP_ENVIO)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.SENDING_COUNTRY)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.SENDING_COUNTRY)
+            @Html.ValidationMessageFor(model => model.SENDING_COUNTRY)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.SENDING_DOOR)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.SENDING_DOOR)
+            @Html.ValidationMessageFor(model => model.SENDING_DOOR)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.SENDING_NUMBER)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.SENDING_NUMBER)
+            @Html.ValidationMessageFor(model => model.SENDING_NUMBER)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.SENDING_STREET)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.SENDING_STREET)
+            @Html.ValidationMessageFor(model => model.SENDING_STREET)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.PAYMENT_FORM)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.PAYMENT_FORM)
+            @Html.ValidationMessageFor(model => model.PAYMENT_FORM)
+        </div>
+        <div class="hidden-field">
+            @Html.HiddenFor(model => model.STATE)
+            @Html.HiddenFor(model => model.ELABORATION_DATE)
+            @Html.HiddenFor(model => model.EMPLOYEE_ID)
+        </div>
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}

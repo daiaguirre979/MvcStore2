@@ -1,0 +1,7 @@
+c:\users\jsp\documents\visual studio 2010\Projects\MvcStore2\MvcStore2\bin\MvcStore2.dll
+c:\users\jsp\documents\visual studio 2010\Projects\MvcStore2\MvcStore2\bin\MvcStore2.pdb
+c:\users\jsp\documents\visual studio 2010\Projects\MvcStore2\MvcStore2\bin\EntityFramework.dll
+c:\users\jsp\documents\visual studio 2010\Projects\MvcStore2\MvcStore2\bin\EntityFramework.xml
+c:\users\jsp\documents\visual studio 2010\Projects\MvcStore2\MvcStore2\obj\Debug\MvcStore2.csprojResolveAssemblyReference.cache
+c:\users\jsp\documents\visual studio 2010\Projects\MvcStore2\MvcStore2\obj\Debug\MvcStore2.dll
+c:\users\jsp\documents\visual studio 2010\Projects\MvcStore2\MvcStore2\obj\Debug\MvcStore2.pdb

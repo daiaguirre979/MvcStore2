@@ -1,0 +1,26 @@
+﻿@model MvcStore2.Models.COUNTRY
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+
+<h2>Detalles</h2>
+
+<fieldset>
+    <legend>PAIS</legend>
+
+    <div class="display-label">NOMBRE</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.NAME)
+    </div>
+
+    <div class="display-label">REGION</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.REGION.NAME)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id=Model.ID }) |
+    @Html.ActionLink("Regresar", "Index")
+</p>

@@ -1,0 +1,86 @@
+﻿@model IEnumerable<MvcStore2.Models.ORDER>
+           
+@{
+    ViewBag.Title = "NoAttended";
+    Layout = "~/Views/Shared/_Depot.cshtml";
+}
+
+@Html.Partial("_MenuOrders")
+
+<h2>NoAttended</h2> 
+<table class="large">
+    <tr>
+        <th>
+            CP_ENVIO
+        </th>
+        <th>
+            SENDING_COUNTRY
+        </th>
+        <th>
+            SENDING_DOOR
+        </th>
+        <th>
+            SENDING_NUMBER
+        </th>
+        <th>
+            SENDING_STREET
+        </th>
+        <th>
+            PAYMENT_FORM
+        </th>
+        <th>
+            ELABORATION_DATE
+        </th>
+        <th>
+            EMPLOYEE
+        </th>
+        <th>
+            CUSTOMER
+        </th>
+        <th>
+            STATE
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.CP_ENVIO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SENDING_COUNTRY)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SENDING_DOOR)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SENDING_NUMBER)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SENDING_STREET)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PAYMENT_FORM)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ELABORATION_DATE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EMPLOYEE.LOGIN)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CUSTOMER.NAME)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.STATE)
+        </td>
+        <td>
+            @Html.ActionLink("Atender", "ChangeStateOne", new { id=item.ID }) |            
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>

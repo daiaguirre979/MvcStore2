@@ -1,0 +1,21 @@
+﻿@model MvcStore2.Models.REGION
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>REGION</legend>
+
+    <div class="display-label">NAME</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.NAME)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

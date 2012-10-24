@@ -1,0 +1,70 @@
+﻿@model IEnumerable<MvcStore2.Models.DEPOT>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Nuevo Almacen", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            NAME
+        </th>
+        <th>
+            ADDRESS
+        </th>
+        <th>
+            TELEPHONE
+        </th>
+        <th>
+            COUNTRY
+        </th>
+        <th>
+            FAX
+        </th>
+        <th>
+            EMAIL
+        </th>
+        <th>
+            REGION
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.NAME)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ADDRESS)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TELEPHONE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.COUNTRY)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FAX)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EMAIL)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.REGION.NAME)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>

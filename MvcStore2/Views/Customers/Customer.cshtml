@@ -1,0 +1,88 @@
+﻿@model MvcStore2.Models.CUSTOMER
+
+@{
+    ViewBag.Title = "Customer";
+    Layout = "~/Views/Shared/_Sales.cshtml";
+}
+
+<h2>Details</h2>
+    
+<fieldset>
+    <legend>CUSTOMER</legend>
+
+    <div class="display-label">DNI</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.DNI)
+    </div>
+
+    <div class="display-label">NAME</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.NAME)
+    </div>
+    <!--
+    <div class="display-label">TELEPHONE</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.TELEPHONE)
+    </div>
+
+    <div class="display-label">LOCALITY</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.LOCALITY)
+    </div>
+
+    <div class="display-label">PROVINCE</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PROVINCE)
+    </div>
+
+    <div class="display-label">CP</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CP)
+    </div>
+    
+    <div class="display-label">EMAIL</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.EMAIL)
+    </div>
+
+    <div class="display-label">COUNTRY</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.COUNTRY)
+    </div>
+
+    <div class="display-label">EMPLOYEE</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.EMPLOYEE.NAME)
+    </div> -->
+</fieldset>
+<fieldset>
+    <div class="padding">
+        @Html.Partial("_Orders")
+    </div>  
+</fieldset>
+
+<fieldset>
+    <legend>ORDENES REALIZADAS</legend>
+    <table class="large">
+        <tr>
+            <th>NUM</th>
+            <th>CP_ENVIO</th>
+            <th>FECHA DE ELABORACION</th>
+            <th>OPCIONES</th>
+        </tr>
+        @foreach (var item in Model.ORDERS){
+            <tr>
+                <td>Num</td>
+                <td>@Html.DisplayFor(modelItem => item.CP_ENVIO)</td>
+                <td>@Html.DisplayFor(modelItem => item.ELABORATION_DATE)</td>
+                <td>@Html.ActionLink("Ver", "Details", "Orders", new { id= item.ID  }, null)
+            </tr>
+        }   
+    </table>
+    
+</fieldset> 
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+    

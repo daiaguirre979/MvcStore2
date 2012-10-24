@@ -1,0 +1,386 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Store.Store" Alias="Self" Provider="Oracle.DataAccess.Client" ProviderManifestToken="11.2" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="StoreStoreContainer">
+    <EntitySet Name="COUNTRIES" EntityType="Store.Store.COUNTRIES" store:Type="Tables" Schema="OSMAR_USER" />
+    <EntitySet Name="CUSTOMERS" EntityType="Store.Store.CUSTOMERS" store:Type="Tables" Schema="OSMAR_USER" />
+    <EntitySet Name="DEPOT_PRODUCTS" EntityType="Store.Store.DEPOT_PRODUCTS" store:Type="Tables" Schema="OSMAR_USER" />
+    <EntitySet Name="DEPOTS" EntityType="Store.Store.DEPOTS" store:Type="Tables" Schema="OSMAR_USER" />
+    <EntitySet Name="EMPLOYEES" EntityType="Store.Store.EMPLOYEES" store:Type="Tables" Schema="OSMAR_USER" />
+    <EntitySet Name="INCIDENTS" EntityType="Store.Store.INCIDENTS" store:Type="Tables" Schema="OSMAR_USER" />
+    <EntitySet Name="ORDER_LINES" EntityType="Store.Store.ORDER_LINES" store:Type="Tables" Schema="OSMAR_USER" />
+    <EntitySet Name="ORDERS" EntityType="Store.Store.ORDERS" store:Type="Tables" Schema="OSMAR_USER" />
+    <EntitySet Name="PRODUCTS" EntityType="Store.Store.PRODUCTS" store:Type="Tables" Schema="OSMAR_USER" />
+    <EntitySet Name="REGIONS" EntityType="Store.Store.REGIONS" store:Type="Tables" Schema="OSMAR_USER" />
+    <EntitySet Name="SUPPLIERS" EntityType="Store.Store.SUPPLIERS" store:Type="Tables" Schema="OSMAR_USER" />
+    <EntitySet Name="USERS" EntityType="Store.Store.USERS" store:Type="Tables" Schema="OSMAR_USER" />
+    <AssociationSet Name="CUSTOMERS_EMPLOYEES_FK1" Association="Store.Store.CUSTOMERS_EMPLOYEES_FK1">
+      <End Role="EMPLOYEES" EntitySet="EMPLOYEES" />
+      <End Role="CUSTOMERS" EntitySet="CUSTOMERS" />
+    </AssociationSet>
+    <AssociationSet Name="SYS_C007607" Association="Store.Store.SYS_C007607">
+      <End Role="REGIONS" EntitySet="REGIONS" />
+      <End Role="COUNTRIES" EntitySet="COUNTRIES" />
+    </AssociationSet>
+    <AssociationSet Name="SYS_C007609" Association="Store.Store.SYS_C007609">
+      <End Role="DEPOTS" EntitySet="DEPOTS" />
+      <End Role="DEPOT_PRODUCTS" EntitySet="DEPOT_PRODUCTS" />
+    </AssociationSet>
+    <AssociationSet Name="SYS_C007610" Association="Store.Store.SYS_C007610">
+      <End Role="PRODUCTS" EntitySet="PRODUCTS" />
+      <End Role="DEPOT_PRODUCTS" EntitySet="DEPOT_PRODUCTS" />
+    </AssociationSet>
+    <AssociationSet Name="SYS_C007611" Association="Store.Store.SYS_C007611">
+      <End Role="REGIONS" EntitySet="REGIONS" />
+      <End Role="DEPOTS" EntitySet="DEPOTS" />
+    </AssociationSet>
+    <AssociationSet Name="SYS_C007612" Association="Store.Store.SYS_C007612">
+      <End Role="DEPOTS" EntitySet="DEPOTS" />
+      <End Role="EMPLOYEES" EntitySet="EMPLOYEES" />
+    </AssociationSet>
+    <AssociationSet Name="SYS_C007613" Association="Store.Store.SYS_C007613">
+      <End Role="EMPLOYEES" EntitySet="EMPLOYEES" />
+      <End Role="INCIDENTS" EntitySet="INCIDENTS" />
+    </AssociationSet>
+    <AssociationSet Name="SYS_C007614" Association="Store.Store.SYS_C007614">
+      <End Role="ORDERS" EntitySet="ORDERS" />
+      <End Role="INCIDENTS" EntitySet="INCIDENTS" />
+    </AssociationSet>
+    <AssociationSet Name="SYS_C007615" Association="Store.Store.SYS_C007615">
+      <End Role="ORDERS" EntitySet="ORDERS" />
+      <End Role="ORDER_LINES" EntitySet="ORDER_LINES" />
+    </AssociationSet>
+    <AssociationSet Name="SYS_C007616" Association="Store.Store.SYS_C007616">
+      <End Role="PRODUCTS" EntitySet="PRODUCTS" />
+      <End Role="ORDER_LINES" EntitySet="ORDER_LINES" />
+    </AssociationSet>
+    <AssociationSet Name="SYS_C007617" Association="Store.Store.SYS_C007617">
+      <End Role="EMPLOYEES" EntitySet="EMPLOYEES" />
+      <End Role="ORDERS" EntitySet="ORDERS" />
+    </AssociationSet>
+    <AssociationSet Name="SYS_C007618" Association="Store.Store.SYS_C007618">
+      <End Role="CUSTOMERS" EntitySet="CUSTOMERS" />
+      <End Role="ORDERS" EntitySet="ORDERS" />
+    </AssociationSet>
+    <AssociationSet Name="SYS_C007619" Association="Store.Store.SYS_C007619">
+      <End Role="SUPPLIERS" EntitySet="SUPPLIERS" />
+      <End Role="PRODUCTS" EntitySet="PRODUCTS" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="COUNTRIES">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="number" Nullable="false" Precision="10" />
+    <Property Name="NAME" Type="varchar2" Nullable="false" MaxLength="50" />
+    <Property Name="REGION_ID" Type="number" Nullable="false" Precision="10" />
+  </EntityType>
+  <EntityType Name="CUSTOMERS">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="number" Nullable="false" Precision="10" />
+    <Property Name="NAME" Type="varchar2" Nullable="false" MaxLength="50" />
+    <Property Name="DOOR" Type="number" Nullable="false" Precision="10" />
+    <Property Name="STREET" Type="varchar2" Nullable="false" MaxLength="100" />
+    <Property Name="TELEPHONE" Type="char" MaxLength="9" />
+    <Property Name="LOCALITY" Type="varchar2" Nullable="false" MaxLength="50" />
+    <Property Name="PROVINCE" Type="varchar2" Nullable="false" MaxLength="50" />
+    <Property Name="CP" Type="number" Nullable="false" Precision="10" />
+    <Property Name="BANK_ACCOUNT" Type="varchar2" Nullable="false" MaxLength="10" />
+    <Property Name="EMAIL" Type="varchar2" MaxLength="50" />
+    <Property Name="COUNTRY" Type="varchar2" MaxLength="50" />
+    <Property Name="COMPANY_STATE" Type="number" Precision="1" />
+    <Property Name="CONTACT_PERSON" Type="varchar2" MaxLength="50" />
+    <Property Name="TIF_PERS_CONTACT" Type="varchar2" MaxLength="50" />
+    <Property Name="RATIO_CONFIDENCE" Type="number" Precision="10" Scale="2" />
+    <Property Name="REPRESENTATIVE" Type="varchar2" MaxLength="50" />
+    <Property Name="FAX" Type="varchar2" MaxLength="9" />
+    <Property Name="DNI" Type="varchar2" Nullable="false" MaxLength="8" />
+    <Property Name="EMPLOYEE_ID" Type="number" Nullable="false" Precision="10" />
+  </EntityType>
+  <EntityType Name="DEPOT_PRODUCTS">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="number" Nullable="false" Precision="10" />
+    <Property Name="STOCK" Type="number" Nullable="false" />
+    <Property Name="ASSIGNED_STOCK" Type="number" />
+    <Property Name="DEPOT_ID" Type="number" Nullable="false" Precision="10" />
+    <Property Name="PRODUCT_ID" Type="number" Nullable="false" Precision="10" />
+  </EntityType>
+  <EntityType Name="DEPOTS">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="number" Nullable="false" Precision="10" />
+    <Property Name="NAME" Type="varchar2" Nullable="false" MaxLength="50" />
+    <Property Name="ADDRESS" Type="varchar2" Nullable="false" MaxLength="50" />
+    <Property Name="TELEPHONE" Type="number" Precision="10" />
+    <Property Name="COUNTRY" Type="varchar2" Nullable="false" MaxLength="50" />
+    <Property Name="FAX" Type="varchar2" MaxLength="9" />
+    <Property Name="EMAIL" Type="varchar2" MaxLength="50" />
+    <Property Name="REGION_ID" Type="number" Nullable="false" Precision="10" />
+  </EntityType>
+  <EntityType Name="EMPLOYEES">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="number" Nullable="false" Precision="10" />
+    <Property Name="LOGIN" Type="varchar2" Nullable="false" MaxLength="100" />
+    <Property Name="PASSWORD" Type="varchar2" Nullable="false" MaxLength="100" />
+    <Property Name="CHARGE" Type="varchar2" Nullable="false" MaxLength="100" />
+    <Property Name="NAME" Type="varchar2" Nullable="false" MaxLength="50" />
+    <Property Name="TELEPHONE" Type="char" Nullable="false" MaxLength="9" />
+    <Property Name="DEPOT_ID" Type="number" Nullable="false" Precision="10" />
+  </EntityType>
+  <EntityType Name="INCIDENTS">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="number" Nullable="false" Precision="10" />
+    <Property Name="DATED" Type="date" Nullable="false" />
+    <Property Name="OBSERVATIONS" Type="varchar2" MaxLength="250" />
+    <Property Name="EMPLOYEE_ID" Type="number" Nullable="false" Precision="10" />
+    <Property Name="ORDER_ID" Type="number" Nullable="false" Precision="10" />
+  </EntityType>
+  <EntityType Name="ORDER_LINES">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="number" Nullable="false" Precision="10" />
+    <Property Name="CANTIDAD" Type="number" Nullable="false" Precision="10" />
+    <Property Name="PRECIO" Type="number" Nullable="false" Precision="10" Scale="2" />
+    <Property Name="ASSIGNED_AMOUNT" Type="number" Nullable="false" Precision="10" />
+    <Property Name="ORDER_ID" Type="number" Nullable="false" Precision="10" />
+    <Property Name="PRODUCT_ID" Type="number" Nullable="false" Precision="10" />
+  </EntityType>
+  <EntityType Name="ORDERS">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="number" Nullable="false" Precision="10" />
+    <Property Name="CP_ENVIO" Type="varchar2" Nullable="false" MaxLength="5" />
+    <Property Name="SENDING_COUNTRY" Type="varchar2" Nullable="false" MaxLength="20" />
+    <Property Name="SENDING_DOOR" Type="varchar2" Nullable="false" MaxLength="30" />
+    <Property Name="SENDING_NUMBER" Type="number" Nullable="false" Precision="10" />
+    <Property Name="SENDING_STREET" Type="varchar2" MaxLength="100" />
+    <Property Name="PAYMENT_FORM" Type="varchar2" Nullable="false" MaxLength="20" />
+    <Property Name="ELABORATION_DATE" Type="date" />
+    <Property Name="CHECK_DEPOT_DATE" Type="date" />
+    <Property Name="ATTENTION_DATE" Type="date" />
+    <Property Name="SENDING_LIST_DATE" Type="date" />
+    <Property Name="STORAGE_DEPOT_DATE" Type="date" />
+    <Property Name="EMPLOYEE_ID" Type="number" Nullable="false" Precision="10" />
+    <Property Name="CUSTOMER_ID" Type="number" Nullable="false" Precision="10" />
+    <Property Name="STATE" Type="number" Nullable="false" Precision="10" />
+  </EntityType>
+  <EntityType Name="PRODUCTS">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="number" Nullable="false" Precision="10" />
+    <Property Name="PRICE" Type="number" Nullable="false" Precision="10" Scale="2" />
+    <Property Name="NAME" Type="varchar2" Nullable="false" MaxLength="50" />
+    <Property Name="DESCRIPTION" Type="varchar2" MaxLength="100" />
+    <Property Name="REASONABLE_MAX" Type="number" Precision="10" />
+    <Property Name="SUPPLIER_ID" Type="number" Nullable="false" Precision="10" />
+  </EntityType>
+  <EntityType Name="REGIONS">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="number" Nullable="false" Precision="10" />
+    <Property Name="NAME" Type="varchar2" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="SUPPLIERS">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="number" Nullable="false" Precision="10" />
+    <Property Name="DNI" Type="varchar2" Nullable="false" MaxLength="8" />
+    <Property Name="NAME" Type="varchar2" Nullable="false" MaxLength="50" />
+    <Property Name="TELEPHONE" Type="char" MaxLength="9" />
+    <Property Name="ADDRESS" Type="varchar2" Nullable="false" MaxLength="50" />
+    <Property Name="DOOR" Type="number" Precision="10" />
+    <Property Name="LOCALITY" Type="varchar2" Nullable="false" MaxLength="50" />
+    <Property Name="PROVINCE" Type="varchar2" Nullable="false" MaxLength="50" />
+    <Property Name="CP" Type="char" MaxLength="5" />
+    <Property Name="COUNTRY" Type="varchar2" Nullable="false" MaxLength="50" />
+    <Property Name="FAX" Type="varchar2" MaxLength="9" />
+    <Property Name="EMAIL" Type="varchar2" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="USERS">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="number" Nullable="false" Precision="10" />
+    <Property Name="NAME" Type="varchar2" Nullable="false" MaxLength="100" />
+    <Property Name="PASSWORD" Type="varchar2" Nullable="false" MaxLength="100" />
+  </EntityType>
+  <Association Name="CUSTOMERS_EMPLOYEES_FK1">
+    <End Role="EMPLOYEES" Type="Store.Store.EMPLOYEES" Multiplicity="1" />
+    <End Role="CUSTOMERS" Type="Store.Store.CUSTOMERS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EMPLOYEES">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="CUSTOMERS">
+        <PropertyRef Name="EMPLOYEE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SYS_C007607">
+    <End Role="REGIONS" Type="Store.Store.REGIONS" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="COUNTRIES" Type="Store.Store.COUNTRIES" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="REGIONS">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="COUNTRIES">
+        <PropertyRef Name="REGION_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SYS_C007609">
+    <End Role="DEPOTS" Type="Store.Store.DEPOTS" Multiplicity="1" />
+    <End Role="DEPOT_PRODUCTS" Type="Store.Store.DEPOT_PRODUCTS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DEPOTS">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="DEPOT_PRODUCTS">
+        <PropertyRef Name="DEPOT_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SYS_C007610">
+    <End Role="PRODUCTS" Type="Store.Store.PRODUCTS" Multiplicity="1" />
+    <End Role="DEPOT_PRODUCTS" Type="Store.Store.DEPOT_PRODUCTS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PRODUCTS">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="DEPOT_PRODUCTS">
+        <PropertyRef Name="PRODUCT_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SYS_C007611">
+    <End Role="REGIONS" Type="Store.Store.REGIONS" Multiplicity="1" />
+    <End Role="DEPOTS" Type="Store.Store.DEPOTS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="REGIONS">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="DEPOTS">
+        <PropertyRef Name="REGION_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SYS_C007612">
+    <End Role="DEPOTS" Type="Store.Store.DEPOTS" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="EMPLOYEES" Type="Store.Store.EMPLOYEES" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DEPOTS">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="EMPLOYEES">
+        <PropertyRef Name="DEPOT_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SYS_C007613">
+    <End Role="EMPLOYEES" Type="Store.Store.EMPLOYEES" Multiplicity="1" />
+    <End Role="INCIDENTS" Type="Store.Store.INCIDENTS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EMPLOYEES">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="INCIDENTS">
+        <PropertyRef Name="EMPLOYEE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SYS_C007614">
+    <End Role="ORDERS" Type="Store.Store.ORDERS" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="INCIDENTS" Type="Store.Store.INCIDENTS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ORDERS">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="INCIDENTS">
+        <PropertyRef Name="ORDER_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SYS_C007615">
+    <End Role="ORDERS" Type="Store.Store.ORDERS" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ORDER_LINES" Type="Store.Store.ORDER_LINES" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ORDERS">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ORDER_LINES">
+        <PropertyRef Name="ORDER_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SYS_C007616">
+    <End Role="PRODUCTS" Type="Store.Store.PRODUCTS" Multiplicity="1" />
+    <End Role="ORDER_LINES" Type="Store.Store.ORDER_LINES" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PRODUCTS">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ORDER_LINES">
+        <PropertyRef Name="PRODUCT_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SYS_C007617">
+    <End Role="EMPLOYEES" Type="Store.Store.EMPLOYEES" Multiplicity="1" />
+    <End Role="ORDERS" Type="Store.Store.ORDERS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EMPLOYEES">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ORDERS">
+        <PropertyRef Name="EMPLOYEE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SYS_C007618">
+    <End Role="CUSTOMERS" Type="Store.Store.CUSTOMERS" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ORDERS" Type="Store.Store.ORDERS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CUSTOMERS">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ORDERS">
+        <PropertyRef Name="CUSTOMER_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SYS_C007619">
+    <End Role="SUPPLIERS" Type="Store.Store.SUPPLIERS" Multiplicity="1" />
+    <End Role="PRODUCTS" Type="Store.Store.PRODUCTS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SUPPLIERS">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="PRODUCTS">
+        <PropertyRef Name="SUPPLIER_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

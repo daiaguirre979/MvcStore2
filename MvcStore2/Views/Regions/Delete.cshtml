@@ -1,0 +1,24 @@
+﻿@model MvcStore2.Models.REGION
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+
+<h2>Borrar</h2>
+
+<h3>¿Estas seguro de borrar?</h3>
+<fieldset>
+    <legend>REGION</legend>
+
+    <div class="display-label">NOMBRE</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.NAME)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    <p>
+        <input type="submit" value="Borrar" /> |
+        @Html.ActionLink("Regresar", "Index")
+    </p>
+}

@@ -1,0 +1,71 @@
+﻿@model MvcStore2.Models.SUPPLIER
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Depot.cshtml";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>SUPPLIER</legend>
+
+    <div class="display-label">DNI/CIF</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.DNI)
+    </div>
+
+    <div class="display-label">NAME</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.NAME)
+    </div>
+
+    <div class="display-label">TELEPHONE</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.TELEPHONE)
+    </div>
+
+    <div class="display-label">ADDRESS</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ADDRESS)
+    </div>
+
+    <div class="display-label">DOOR</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.DOOR)
+    </div>
+
+    <div class="display-label">LOCALITY</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.LOCALITY)
+    </div>
+
+    <div class="display-label">PROVINCE</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PROVINCE)
+    </div>
+
+    <div class="display-label">CP</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CP)
+    </div>
+
+    <div class="display-label">COUNTRY</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.COUNTRY)
+    </div>
+
+    <div class="display-label">FAX</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.FAX)
+    </div>
+
+    <div class="display-label">EMAIL</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.EMAIL)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

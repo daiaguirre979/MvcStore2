@@ -1,0 +1,59 @@
+﻿@model MvcStore2.Models.DEPOT
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+
+<h2>Detalles</h2>
+
+<fieldset>
+    <legend>ALMACEN</legend>
+
+    <div class="display-label">NOMBRE</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.NAME)
+    </div>
+
+    <div class="display-label">DIRECCION</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ADDRESS)
+    </div>
+
+    <div class="display-label">TELEFONO</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.TELEPHONE)
+    </div>
+
+    <div class="display-label">PAIS</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.COUNTRY)
+    </div>
+
+    <div class="display-label">FAX</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.FAX)
+    </div>
+
+    <div class="display-label">EMAIL</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.EMAIL)
+    </div>
+
+    <div class="display-label">REGION</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.REGION.NAME)
+    </div>
+</fieldset>
+
+<fieldset>
+    <legend>JEFE DE ALMACEN</legend>
+    <div class="padding">
+        @Html.Partial("_Boss")
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id=Model.ID }) |
+    @Html.ActionLink("Regresar", "Index")
+</p>
+

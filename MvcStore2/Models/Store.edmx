@@ -1,0 +1,1084 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Store.Store" Alias="Self" Provider="Oracle.DataAccess.Client" ProviderManifestToken="11.2" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="StoreStoreContainer">
+          <EntitySet Name="COUNTRIES" EntityType="Store.Store.COUNTRIES" store:Type="Tables" Schema="OSMAR_USER" />
+          <EntitySet Name="CUSTOMERS" EntityType="Store.Store.CUSTOMERS" store:Type="Tables" Schema="OSMAR_USER" />
+          <EntitySet Name="DEPOT_PRODUCTS" EntityType="Store.Store.DEPOT_PRODUCTS" store:Type="Tables" Schema="OSMAR_USER" />
+          <EntitySet Name="DEPOTS" EntityType="Store.Store.DEPOTS" store:Type="Tables" Schema="OSMAR_USER" />
+          <EntitySet Name="EMPLOYEES" EntityType="Store.Store.EMPLOYEES" store:Type="Tables" Schema="OSMAR_USER" />
+          <EntitySet Name="INCIDENTS" EntityType="Store.Store.INCIDENTS" store:Type="Tables" Schema="OSMAR_USER" />
+          <EntitySet Name="ORDER_LINES" EntityType="Store.Store.ORDER_LINES" store:Type="Tables" Schema="OSMAR_USER" />
+          <EntitySet Name="ORDERS" EntityType="Store.Store.ORDERS" store:Type="Tables" Schema="OSMAR_USER" />
+          <EntitySet Name="PRODUCTS" EntityType="Store.Store.PRODUCTS" store:Type="Tables" Schema="OSMAR_USER" />
+          <EntitySet Name="REGIONS" EntityType="Store.Store.REGIONS" store:Type="Tables" Schema="OSMAR_USER" />
+          <EntitySet Name="SUPPLIERS" EntityType="Store.Store.SUPPLIERS" store:Type="Tables" Schema="OSMAR_USER" />
+          <EntitySet Name="USERS" EntityType="Store.Store.USERS" store:Type="Tables" Schema="OSMAR_USER" />
+          <AssociationSet Name="CUSTOMERS_EMPLOYEES_FK1" Association="Store.Store.CUSTOMERS_EMPLOYEES_FK1">
+            <End Role="EMPLOYEES" EntitySet="EMPLOYEES" />
+            <End Role="CUSTOMERS" EntitySet="CUSTOMERS" />
+          </AssociationSet>
+          <AssociationSet Name="SYS_C007607" Association="Store.Store.SYS_C007607">
+            <End Role="REGIONS" EntitySet="REGIONS" />
+            <End Role="COUNTRIES" EntitySet="COUNTRIES" />
+          </AssociationSet>
+          <AssociationSet Name="SYS_C007609" Association="Store.Store.SYS_C007609">
+            <End Role="DEPOTS" EntitySet="DEPOTS" />
+            <End Role="DEPOT_PRODUCTS" EntitySet="DEPOT_PRODUCTS" />
+          </AssociationSet>
+          <AssociationSet Name="SYS_C007610" Association="Store.Store.SYS_C007610">
+            <End Role="PRODUCTS" EntitySet="PRODUCTS" />
+            <End Role="DEPOT_PRODUCTS" EntitySet="DEPOT_PRODUCTS" />
+          </AssociationSet>
+          <AssociationSet Name="SYS_C007611" Association="Store.Store.SYS_C007611">
+            <End Role="REGIONS" EntitySet="REGIONS" />
+            <End Role="DEPOTS" EntitySet="DEPOTS" />
+          </AssociationSet>
+          <AssociationSet Name="SYS_C007612" Association="Store.Store.SYS_C007612">
+            <End Role="DEPOTS" EntitySet="DEPOTS" />
+            <End Role="EMPLOYEES" EntitySet="EMPLOYEES" />
+          </AssociationSet>
+          <AssociationSet Name="SYS_C007613" Association="Store.Store.SYS_C007613">
+            <End Role="EMPLOYEES" EntitySet="EMPLOYEES" />
+            <End Role="INCIDENTS" EntitySet="INCIDENTS" />
+          </AssociationSet>
+          <AssociationSet Name="SYS_C007614" Association="Store.Store.SYS_C007614">
+            <End Role="ORDERS" EntitySet="ORDERS" />
+            <End Role="INCIDENTS" EntitySet="INCIDENTS" />
+          </AssociationSet>
+          <AssociationSet Name="SYS_C007615" Association="Store.Store.SYS_C007615">
+            <End Role="ORDERS" EntitySet="ORDERS" />
+            <End Role="ORDER_LINES" EntitySet="ORDER_LINES" />
+          </AssociationSet>
+          <AssociationSet Name="SYS_C007616" Association="Store.Store.SYS_C007616">
+            <End Role="PRODUCTS" EntitySet="PRODUCTS" />
+            <End Role="ORDER_LINES" EntitySet="ORDER_LINES" />
+          </AssociationSet>
+          <AssociationSet Name="SYS_C007617" Association="Store.Store.SYS_C007617">
+            <End Role="EMPLOYEES" EntitySet="EMPLOYEES" />
+            <End Role="ORDERS" EntitySet="ORDERS" />
+          </AssociationSet>
+          <AssociationSet Name="SYS_C007618" Association="Store.Store.SYS_C007618">
+            <End Role="CUSTOMERS" EntitySet="CUSTOMERS" />
+            <End Role="ORDERS" EntitySet="ORDERS" />
+          </AssociationSet>
+          <AssociationSet Name="SYS_C007619" Association="Store.Store.SYS_C007619">
+            <End Role="SUPPLIERS" EntitySet="SUPPLIERS" />
+            <End Role="PRODUCTS" EntitySet="PRODUCTS" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="COUNTRIES">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="number" Nullable="false" Precision="10" />
+          <Property Name="NAME" Type="varchar2" Nullable="false" MaxLength="50" />
+          <Property Name="REGION_ID" Type="number" Nullable="false" Precision="10" />
+        </EntityType>
+        <EntityType Name="CUSTOMERS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="number" Nullable="false" Precision="10" />
+          <Property Name="NAME" Type="varchar2" Nullable="false" MaxLength="50" />
+          <Property Name="DOOR" Type="number" Nullable="false" Precision="10" />
+          <Property Name="STREET" Type="varchar2" Nullable="false" MaxLength="100" />
+          <Property Name="TELEPHONE" Type="char" MaxLength="9" />
+          <Property Name="LOCALITY" Type="varchar2" Nullable="false" MaxLength="50" />
+          <Property Name="PROVINCE" Type="varchar2" Nullable="false" MaxLength="50" />
+          <Property Name="CP" Type="number" Nullable="false" Precision="10" />
+          <Property Name="BANK_ACCOUNT" Type="varchar2" Nullable="false" MaxLength="10" />
+          <Property Name="EMAIL" Type="varchar2" MaxLength="50" />
+          <Property Name="COUNTRY" Type="varchar2" MaxLength="50" />
+          <Property Name="COMPANY_STATE" Type="number" Precision="1" />
+          <Property Name="CONTACT_PERSON" Type="varchar2" MaxLength="50" />
+          <Property Name="TIF_PERS_CONTACT" Type="varchar2" MaxLength="50" />
+          <Property Name="RATIO_CONFIDENCE" Type="number" Precision="10" Scale="2" />
+          <Property Name="REPRESENTATIVE" Type="varchar2" MaxLength="50" />
+          <Property Name="FAX" Type="varchar2" MaxLength="9" />
+          <Property Name="DNI" Type="varchar2" Nullable="false" MaxLength="8" />
+          <Property Name="EMPLOYEE_ID" Type="number" Nullable="false" Precision="10" />
+        </EntityType>
+        <EntityType Name="DEPOT_PRODUCTS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="number" Nullable="false" Precision="10" />
+          <Property Name="STOCK" Type="number" Nullable="false" />
+          <Property Name="ASSIGNED_STOCK" Type="number" />
+          <Property Name="DEPOT_ID" Type="number" Nullable="false" Precision="10" />
+          <Property Name="PRODUCT_ID" Type="number" Nullable="false" Precision="10" />
+        </EntityType>
+        <EntityType Name="DEPOTS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="number" Nullable="false" Precision="10" />
+          <Property Name="NAME" Type="varchar2" Nullable="false" MaxLength="50" />
+          <Property Name="ADDRESS" Type="varchar2" Nullable="false" MaxLength="50" />
+          <Property Name="TELEPHONE" Type="number" Precision="10" />
+          <Property Name="COUNTRY" Type="varchar2" Nullable="false" MaxLength="50" />
+          <Property Name="FAX" Type="varchar2" MaxLength="9" />
+          <Property Name="EMAIL" Type="varchar2" MaxLength="50" />
+          <Property Name="REGION_ID" Type="number" Nullable="false" Precision="10" />
+        </EntityType>
+        <EntityType Name="EMPLOYEES">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="number" Nullable="false" Precision="10" />
+          <Property Name="LOGIN" Type="varchar2" Nullable="false" MaxLength="100" />
+          <Property Name="PASSWORD" Type="varchar2" Nullable="false" MaxLength="100" />
+          <Property Name="CHARGE" Type="varchar2" Nullable="false" MaxLength="100" />
+          <Property Name="NAME" Type="varchar2" Nullable="false" MaxLength="50" />
+          <Property Name="TELEPHONE" Type="char" Nullable="false" MaxLength="9" />
+          <Property Name="DEPOT_ID" Type="number" Nullable="false" Precision="10" />
+        </EntityType>
+        <EntityType Name="INCIDENTS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="number" Nullable="false" Precision="10" />
+          <Property Name="DATED" Type="date" Nullable="false" />
+          <Property Name="OBSERVATIONS" Type="varchar2" MaxLength="250" />
+          <Property Name="EMPLOYEE_ID" Type="number" Nullable="false" Precision="10" />
+          <Property Name="ORDER_ID" Type="number" Nullable="false" Precision="10" />
+        </EntityType>
+        <EntityType Name="ORDER_LINES">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="number" Nullable="false" Precision="10" />
+          <Property Name="CANTIDAD" Type="number" Nullable="false" Precision="10" />
+          <Property Name="PRECIO" Type="number" Nullable="false" Precision="10" Scale="2" />
+          <Property Name="ASSIGNED_AMOUNT" Type="number" Nullable="false" Precision="10" />
+          <Property Name="ORDER_ID" Type="number" Nullable="false" Precision="10" />
+          <Property Name="PRODUCT_ID" Type="number" Nullable="false" Precision="10" />
+        </EntityType>
+        <EntityType Name="ORDERS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="number" Nullable="false" Precision="10" />
+          <Property Name="CP_ENVIO" Type="varchar2" Nullable="false" MaxLength="5" />
+          <Property Name="SENDING_COUNTRY" Type="varchar2" Nullable="false" MaxLength="20" />
+          <Property Name="SENDING_DOOR" Type="varchar2" Nullable="false" MaxLength="30" />
+          <Property Name="SENDING_NUMBER" Type="number" Nullable="false" Precision="10" />
+          <Property Name="SENDING_STREET" Type="varchar2" MaxLength="100" />
+          <Property Name="PAYMENT_FORM" Type="varchar2" Nullable="false" MaxLength="20" />
+          <Property Name="ELABORATION_DATE" Type="date" />
+          <Property Name="CHECK_DEPOT_DATE" Type="date" />
+          <Property Name="ATTENTION_DATE" Type="date" />
+          <Property Name="SENDING_LIST_DATE" Type="date" />
+          <Property Name="STORAGE_DEPOT_DATE" Type="date" />
+          <Property Name="EMPLOYEE_ID" Type="number" Nullable="false" Precision="10" />
+          <Property Name="CUSTOMER_ID" Type="number" Nullable="false" Precision="10" />
+          <Property Name="STATE" Type="number" Nullable="false" Precision="10" />
+        </EntityType>
+        <EntityType Name="PRODUCTS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="number" Nullable="false" Precision="10" />
+          <Property Name="PRICE" Type="number" Nullable="false" Precision="10" Scale="2" />
+          <Property Name="NAME" Type="varchar2" Nullable="false" MaxLength="50" />
+          <Property Name="DESCRIPTION" Type="varchar2" MaxLength="100" />
+          <Property Name="REASONABLE_MAX" Type="number" Precision="10" />
+          <Property Name="SUPPLIER_ID" Type="number" Nullable="false" Precision="10" />
+        </EntityType>
+        <EntityType Name="REGIONS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="number" Nullable="false" Precision="10" />
+          <Property Name="NAME" Type="varchar2" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="SUPPLIERS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="number" Nullable="false" Precision="10" />
+          <Property Name="DNI" Type="varchar2" Nullable="false" MaxLength="8" />
+          <Property Name="NAME" Type="varchar2" Nullable="false" MaxLength="50" />
+          <Property Name="TELEPHONE" Type="char" MaxLength="9" />
+          <Property Name="ADDRESS" Type="varchar2" Nullable="false" MaxLength="50" />
+          <Property Name="DOOR" Type="number" Precision="10" />
+          <Property Name="LOCALITY" Type="varchar2" Nullable="false" MaxLength="50" />
+          <Property Name="PROVINCE" Type="varchar2" Nullable="false" MaxLength="50" />
+          <Property Name="CP" Type="char" MaxLength="5" />
+          <Property Name="COUNTRY" Type="varchar2" Nullable="false" MaxLength="50" />
+          <Property Name="FAX" Type="varchar2" MaxLength="9" />
+          <Property Name="EMAIL" Type="varchar2" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="USERS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="number" Nullable="false" Precision="10" />
+          <Property Name="NAME" Type="varchar2" Nullable="false" MaxLength="100" />
+          <Property Name="PASSWORD" Type="varchar2" Nullable="false" MaxLength="100" />
+        </EntityType>
+        <Association Name="CUSTOMERS_EMPLOYEES_FK1">
+          <End Role="EMPLOYEES" Type="Store.Store.EMPLOYEES" Multiplicity="1" />
+          <End Role="CUSTOMERS" Type="Store.Store.CUSTOMERS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EMPLOYEES">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="CUSTOMERS">
+              <PropertyRef Name="EMPLOYEE_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SYS_C007607">
+          <End Role="REGIONS" Type="Store.Store.REGIONS" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="COUNTRIES" Type="Store.Store.COUNTRIES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="REGIONS">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="COUNTRIES">
+              <PropertyRef Name="REGION_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SYS_C007609">
+          <End Role="DEPOTS" Type="Store.Store.DEPOTS" Multiplicity="1" />
+          <End Role="DEPOT_PRODUCTS" Type="Store.Store.DEPOT_PRODUCTS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DEPOTS">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="DEPOT_PRODUCTS">
+              <PropertyRef Name="DEPOT_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SYS_C007610">
+          <End Role="PRODUCTS" Type="Store.Store.PRODUCTS" Multiplicity="1" />
+          <End Role="DEPOT_PRODUCTS" Type="Store.Store.DEPOT_PRODUCTS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PRODUCTS">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="DEPOT_PRODUCTS">
+              <PropertyRef Name="PRODUCT_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SYS_C007611">
+          <End Role="REGIONS" Type="Store.Store.REGIONS" Multiplicity="1" />
+          <End Role="DEPOTS" Type="Store.Store.DEPOTS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="REGIONS">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="DEPOTS">
+              <PropertyRef Name="REGION_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SYS_C007612">
+          <End Role="DEPOTS" Type="Store.Store.DEPOTS" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="EMPLOYEES" Type="Store.Store.EMPLOYEES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DEPOTS">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="EMPLOYEES">
+              <PropertyRef Name="DEPOT_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SYS_C007613">
+          <End Role="EMPLOYEES" Type="Store.Store.EMPLOYEES" Multiplicity="1" />
+          <End Role="INCIDENTS" Type="Store.Store.INCIDENTS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EMPLOYEES">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="INCIDENTS">
+              <PropertyRef Name="EMPLOYEE_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SYS_C007614">
+          <End Role="ORDERS" Type="Store.Store.ORDERS" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="INCIDENTS" Type="Store.Store.INCIDENTS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ORDERS">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="INCIDENTS">
+              <PropertyRef Name="ORDER_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SYS_C007615">
+          <End Role="ORDERS" Type="Store.Store.ORDERS" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ORDER_LINES" Type="Store.Store.ORDER_LINES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ORDERS">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ORDER_LINES">
+              <PropertyRef Name="ORDER_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SYS_C007616">
+          <End Role="PRODUCTS" Type="Store.Store.PRODUCTS" Multiplicity="1" />
+          <End Role="ORDER_LINES" Type="Store.Store.ORDER_LINES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PRODUCTS">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ORDER_LINES">
+              <PropertyRef Name="PRODUCT_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SYS_C007617">
+          <End Role="EMPLOYEES" Type="Store.Store.EMPLOYEES" Multiplicity="1" />
+          <End Role="ORDERS" Type="Store.Store.ORDERS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EMPLOYEES">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ORDERS">
+              <PropertyRef Name="EMPLOYEE_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SYS_C007618">
+          <End Role="CUSTOMERS" Type="Store.Store.CUSTOMERS" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ORDERS" Type="Store.Store.ORDERS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CUSTOMERS">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ORDERS">
+              <PropertyRef Name="CUSTOMER_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SYS_C007619">
+          <End Role="SUPPLIERS" Type="Store.Store.SUPPLIERS" Multiplicity="1" />
+          <End Role="PRODUCTS" Type="Store.Store.PRODUCTS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SUPPLIERS">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="PRODUCTS">
+              <PropertyRef Name="SUPPLIER_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Store" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="EntityStore" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="COUNTRIES" EntityType="Store.COUNTRY" />
+          <EntitySet Name="CUSTOMERS" EntityType="Store.CUSTOMER" />
+          <EntitySet Name="DEPOT_PRODUCTS" EntityType="Store.DEPOT_PRODUCTS" />
+          <EntitySet Name="DEPOTS" EntityType="Store.DEPOT" />
+          <EntitySet Name="EMPLOYEES" EntityType="Store.EMPLOYEE" />
+          <EntitySet Name="INCIDENTS" EntityType="Store.INCIDENT" />
+          <EntitySet Name="ORDER_LINES" EntityType="Store.ORDER_LINES" />
+          <EntitySet Name="ORDERS" EntityType="Store.ORDER" />
+          <EntitySet Name="PRODUCTS" EntityType="Store.PRODUCT" />
+          <EntitySet Name="REGIONS" EntityType="Store.REGION" />
+          <EntitySet Name="SUPPLIERS" EntityType="Store.SUPPLIER" />
+          <EntitySet Name="USERS" EntityType="Store.USER" />
+          <AssociationSet Name="SYS_C007607" Association="Store.SYS_C007607">
+            <End Role="REGIONS" EntitySet="REGIONS" />
+            <End Role="COUNTRIES" EntitySet="COUNTRIES" />
+          </AssociationSet>
+          <AssociationSet Name="CUSTOMERS_EMPLOYEES_FK1" Association="Store.CUSTOMERS_EMPLOYEES_FK1">
+            <End Role="EMPLOYEES" EntitySet="EMPLOYEES" />
+            <End Role="CUSTOMERS" EntitySet="CUSTOMERS" />
+          </AssociationSet>
+          <AssociationSet Name="SYS_C007618" Association="Store.SYS_C007618">
+            <End Role="CUSTOMERS" EntitySet="CUSTOMERS" />
+            <End Role="ORDERS" EntitySet="ORDERS" />
+          </AssociationSet>
+          <AssociationSet Name="SYS_C007609" Association="Store.SYS_C007609">
+            <End Role="DEPOTS" EntitySet="DEPOTS" />
+            <End Role="DEPOT_PRODUCTS" EntitySet="DEPOT_PRODUCTS" />
+          </AssociationSet>
+          <AssociationSet Name="SYS_C007610" Association="Store.SYS_C007610">
+            <End Role="PRODUCTS" EntitySet="PRODUCTS" />
+            <End Role="DEPOT_PRODUCTS" EntitySet="DEPOT_PRODUCTS" />
+          </AssociationSet>
+          <AssociationSet Name="SYS_C007611" Association="Store.SYS_C007611">
+            <End Role="REGIONS" EntitySet="REGIONS" />
+            <End Role="DEPOTS" EntitySet="DEPOTS" />
+          </AssociationSet>
+          <AssociationSet Name="SYS_C007612" Association="Store.SYS_C007612">
+            <End Role="DEPOTS" EntitySet="DEPOTS" />
+            <End Role="EMPLOYEES" EntitySet="EMPLOYEES" />
+          </AssociationSet>
+          <AssociationSet Name="SYS_C007613" Association="Store.SYS_C007613">
+            <End Role="EMPLOYEES" EntitySet="EMPLOYEES" />
+            <End Role="INCIDENTS" EntitySet="INCIDENTS" />
+          </AssociationSet>
+          <AssociationSet Name="SYS_C007617" Association="Store.SYS_C007617">
+            <End Role="EMPLOYEES" EntitySet="EMPLOYEES" />
+            <End Role="ORDERS" EntitySet="ORDERS" />
+          </AssociationSet>
+          <AssociationSet Name="SYS_C007614" Association="Store.SYS_C007614">
+            <End Role="ORDERS" EntitySet="ORDERS" />
+            <End Role="INCIDENTS" EntitySet="INCIDENTS" />
+          </AssociationSet>
+          <AssociationSet Name="SYS_C007615" Association="Store.SYS_C007615">
+            <End Role="ORDERS" EntitySet="ORDERS" />
+            <End Role="ORDER_LINES" EntitySet="ORDER_LINES" />
+          </AssociationSet>
+          <AssociationSet Name="SYS_C007616" Association="Store.SYS_C007616">
+            <End Role="PRODUCTS" EntitySet="PRODUCTS" />
+            <End Role="ORDER_LINES" EntitySet="ORDER_LINES" />
+          </AssociationSet>
+          <AssociationSet Name="SYS_C007619" Association="Store.SYS_C007619">
+            <End Role="SUPPLIERS" EntitySet="SUPPLIERS" />
+            <End Role="PRODUCTS" EntitySet="PRODUCTS" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="COUNTRY">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NAME" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="REGION_ID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="REGION" Relationship="Store.SYS_C007607" FromRole="COUNTRIES" ToRole="REGIONS" />
+        </EntityType>
+        <EntityType Name="CUSTOMER">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NAME" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="DOOR" Type="Int32" Nullable="false" />
+          <Property Name="STREET" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="TELEPHONE" Type="String" MaxLength="9" Unicode="false" FixedLength="true" />
+          <Property Name="LOCALITY" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="PROVINCE" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="CP" Type="Int32" Nullable="false" />
+          <Property Name="BANK_ACCOUNT" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="false" />
+          <Property Name="EMAIL" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="COUNTRY" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="COMPANY_STATE" Type="Int16" />
+          <Property Name="CONTACT_PERSON" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="TIF_PERS_CONTACT" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="RATIO_CONFIDENCE" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="REPRESENTATIVE" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="FAX" Type="String" MaxLength="9" Unicode="false" FixedLength="false" />
+          <Property Name="DNI" Type="String" Nullable="false" MaxLength="8" Unicode="false" FixedLength="false" />
+          <Property Name="EMPLOYEE_ID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="EMPLOYEE" Relationship="Store.CUSTOMERS_EMPLOYEES_FK1" FromRole="CUSTOMERS" ToRole="EMPLOYEES" />
+          <NavigationProperty Name="ORDERS" Relationship="Store.SYS_C007618" FromRole="CUSTOMERS" ToRole="ORDERS" />
+        </EntityType>
+        <EntityType Name="DEPOT_PRODUCTS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="STOCK" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="ASSIGNED_STOCK" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="DEPOT_ID" Type="Int32" Nullable="false" />
+          <Property Name="PRODUCT_ID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="DEPOT" Relationship="Store.SYS_C007609" FromRole="DEPOT_PRODUCTS" ToRole="DEPOTS" />
+          <NavigationProperty Name="PRODUCT" Relationship="Store.SYS_C007610" FromRole="DEPOT_PRODUCTS" ToRole="PRODUCTS" />
+        </EntityType>
+        <EntityType Name="DEPOT">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NAME" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="ADDRESS" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="TELEPHONE" Type="Int32" />
+          <Property Name="COUNTRY" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="FAX" Type="String" MaxLength="9" Unicode="false" FixedLength="false" />
+          <Property Name="EMAIL" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="REGION_ID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="DEPOT_PRODUCTS" Relationship="Store.SYS_C007609" FromRole="DEPOTS" ToRole="DEPOT_PRODUCTS" />
+          <NavigationProperty Name="REGION" Relationship="Store.SYS_C007611" FromRole="DEPOTS" ToRole="REGIONS" />
+          <NavigationProperty Name="EMPLOYEES" Relationship="Store.SYS_C007612" FromRole="DEPOTS" ToRole="EMPLOYEES" />
+        </EntityType>
+        <EntityType Name="EMPLOYEE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LOGIN" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="PASSWORD" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="CHARGE" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="NAME" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="TELEPHONE" Type="String" Nullable="false" MaxLength="9" Unicode="false" FixedLength="true" />
+          <Property Name="DEPOT_ID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="CUSTOMERS" Relationship="Store.CUSTOMERS_EMPLOYEES_FK1" FromRole="EMPLOYEES" ToRole="CUSTOMERS" />
+          <NavigationProperty Name="DEPOT" Relationship="Store.SYS_C007612" FromRole="EMPLOYEES" ToRole="DEPOTS" />
+          <NavigationProperty Name="INCIDENTS" Relationship="Store.SYS_C007613" FromRole="EMPLOYEES" ToRole="INCIDENTS" />
+          <NavigationProperty Name="ORDERS" Relationship="Store.SYS_C007617" FromRole="EMPLOYEES" ToRole="ORDERS" />
+        </EntityType>
+        <EntityType Name="INCIDENT">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DATED" Type="DateTime" Nullable="false" />
+          <Property Name="OBSERVATIONS" Type="String" MaxLength="250" Unicode="false" FixedLength="false" />
+          <Property Name="EMPLOYEE_ID" Type="Int32" Nullable="false" />
+          <Property Name="ORDER_ID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="EMPLOYEE" Relationship="Store.SYS_C007613" FromRole="INCIDENTS" ToRole="EMPLOYEES" />
+          <NavigationProperty Name="ORDER" Relationship="Store.SYS_C007614" FromRole="INCIDENTS" ToRole="ORDERS" />
+        </EntityType>
+        <EntityType Name="ORDER_LINES">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CANTIDAD" Type="Int32" Nullable="false" />
+          <Property Name="PRECIO" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
+          <Property Name="ASSIGNED_AMOUNT" Type="Int32" Nullable="false" />
+          <Property Name="ORDER_ID" Type="Int32" Nullable="false" />
+          <Property Name="PRODUCT_ID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="ORDER" Relationship="Store.SYS_C007615" FromRole="ORDER_LINES" ToRole="ORDERS" />
+          <NavigationProperty Name="PRODUCT" Relationship="Store.SYS_C007616" FromRole="ORDER_LINES" ToRole="PRODUCTS" />
+        </EntityType>
+        <EntityType Name="ORDER">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CP_ENVIO" Type="String" Nullable="false" MaxLength="5" Unicode="false" FixedLength="false" />
+          <Property Name="SENDING_COUNTRY" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="SENDING_DOOR" Type="String" Nullable="false" MaxLength="30" Unicode="false" FixedLength="false" />
+          <Property Name="SENDING_NUMBER" Type="Int32" Nullable="false" />
+          <Property Name="SENDING_STREET" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="PAYMENT_FORM" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="ELABORATION_DATE" Type="DateTime" />
+          <Property Name="CHECK_DEPOT_DATE" Type="DateTime" />
+          <Property Name="ATTENTION_DATE" Type="DateTime" />
+          <Property Name="SENDING_LIST_DATE" Type="DateTime" />
+          <Property Name="STORAGE_DEPOT_DATE" Type="DateTime" />
+          <Property Name="EMPLOYEE_ID" Type="Int32" Nullable="false" />
+          <Property Name="CUSTOMER_ID" Type="Int32" Nullable="false" />
+          <Property Name="STATE" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="CUSTOMER" Relationship="Store.SYS_C007618" FromRole="ORDERS" ToRole="CUSTOMERS" />
+          <NavigationProperty Name="EMPLOYEE" Relationship="Store.SYS_C007617" FromRole="ORDERS" ToRole="EMPLOYEES" />
+          <NavigationProperty Name="INCIDENTS" Relationship="Store.SYS_C007614" FromRole="ORDERS" ToRole="INCIDENTS" />
+          <NavigationProperty Name="ORDER_LINES" Relationship="Store.SYS_C007615" FromRole="ORDERS" ToRole="ORDER_LINES" />
+        </EntityType>
+        <EntityType Name="PRODUCT">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PRICE" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
+          <Property Name="NAME" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="DESCRIPTION" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="REASONABLE_MAX" Type="Int32" />
+          <Property Name="SUPPLIER_ID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="DEPOT_PRODUCTS" Relationship="Store.SYS_C007610" FromRole="PRODUCTS" ToRole="DEPOT_PRODUCTS" />
+          <NavigationProperty Name="ORDER_LINES" Relationship="Store.SYS_C007616" FromRole="PRODUCTS" ToRole="ORDER_LINES" />
+          <NavigationProperty Name="SUPPLIER" Relationship="Store.SYS_C007619" FromRole="PRODUCTS" ToRole="SUPPLIERS" />
+        </EntityType>
+        <EntityType Name="REGION">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NAME" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="COUNTRIES" Relationship="Store.SYS_C007607" FromRole="REGIONS" ToRole="COUNTRIES" />
+          <NavigationProperty Name="DEPOTS" Relationship="Store.SYS_C007611" FromRole="REGIONS" ToRole="DEPOTS" />
+        </EntityType>
+        <EntityType Name="SUPPLIER">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DNI" Type="String" Nullable="false" MaxLength="8" Unicode="false" FixedLength="false" />
+          <Property Name="NAME" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="TELEPHONE" Type="String" MaxLength="9" Unicode="false" FixedLength="true" />
+          <Property Name="ADDRESS" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="DOOR" Type="Int32" />
+          <Property Name="LOCALITY" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="PROVINCE" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="CP" Type="String" MaxLength="5" Unicode="false" FixedLength="true" />
+          <Property Name="COUNTRY" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="FAX" Type="String" MaxLength="9" Unicode="false" FixedLength="false" />
+          <Property Name="EMAIL" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="PRODUCTS" Relationship="Store.SYS_C007619" FromRole="SUPPLIERS" ToRole="PRODUCTS" />
+        </EntityType>
+        <EntityType Name="USER">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NAME" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="PASSWORD" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <Association Name="SYS_C007607">
+          <End Role="REGIONS" Type="Store.REGION" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="COUNTRIES" Type="Store.COUNTRY" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="REGIONS">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="COUNTRIES">
+              <PropertyRef Name="REGION_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CUSTOMERS_EMPLOYEES_FK1">
+          <End Role="EMPLOYEES" Type="Store.EMPLOYEE" Multiplicity="1" />
+          <End Role="CUSTOMERS" Type="Store.CUSTOMER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EMPLOYEES">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="CUSTOMERS">
+              <PropertyRef Name="EMPLOYEE_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SYS_C007618">
+          <End Role="CUSTOMERS" Type="Store.CUSTOMER" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ORDERS" Type="Store.ORDER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CUSTOMERS">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ORDERS">
+              <PropertyRef Name="CUSTOMER_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SYS_C007609">
+          <End Role="DEPOTS" Type="Store.DEPOT" Multiplicity="1" />
+          <End Role="DEPOT_PRODUCTS" Type="Store.DEPOT_PRODUCTS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DEPOTS">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="DEPOT_PRODUCTS">
+              <PropertyRef Name="DEPOT_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SYS_C007610">
+          <End Role="PRODUCTS" Type="Store.PRODUCT" Multiplicity="1" />
+          <End Role="DEPOT_PRODUCTS" Type="Store.DEPOT_PRODUCTS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PRODUCTS">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="DEPOT_PRODUCTS">
+              <PropertyRef Name="PRODUCT_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SYS_C007611">
+          <End Role="REGIONS" Type="Store.REGION" Multiplicity="1" />
+          <End Role="DEPOTS" Type="Store.DEPOT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="REGIONS">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="DEPOTS">
+              <PropertyRef Name="REGION_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SYS_C007612">
+          <End Role="DEPOTS" Type="Store.DEPOT" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="EMPLOYEES" Type="Store.EMPLOYEE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DEPOTS">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="EMPLOYEES">
+              <PropertyRef Name="DEPOT_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SYS_C007613">
+          <End Role="EMPLOYEES" Type="Store.EMPLOYEE" Multiplicity="1" />
+          <End Role="INCIDENTS" Type="Store.INCIDENT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EMPLOYEES">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="INCIDENTS">
+              <PropertyRef Name="EMPLOYEE_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SYS_C007617">
+          <End Role="EMPLOYEES" Type="Store.EMPLOYEE" Multiplicity="1" />
+          <End Role="ORDERS" Type="Store.ORDER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EMPLOYEES">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ORDERS">
+              <PropertyRef Name="EMPLOYEE_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SYS_C007614">
+          <End Role="ORDERS" Type="Store.ORDER" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="INCIDENTS" Type="Store.INCIDENT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ORDERS">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="INCIDENTS">
+              <PropertyRef Name="ORDER_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SYS_C007615">
+          <End Role="ORDERS" Type="Store.ORDER" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ORDER_LINES" Type="Store.ORDER_LINES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ORDERS">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ORDER_LINES">
+              <PropertyRef Name="ORDER_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SYS_C007616">
+          <End Role="PRODUCTS" Type="Store.PRODUCT" Multiplicity="1" />
+          <End Role="ORDER_LINES" Type="Store.ORDER_LINES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PRODUCTS">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ORDER_LINES">
+              <PropertyRef Name="PRODUCT_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SYS_C007619">
+          <End Role="SUPPLIERS" Type="Store.SUPPLIER" Multiplicity="1" />
+          <End Role="PRODUCTS" Type="Store.PRODUCT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SUPPLIERS">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="PRODUCTS">
+              <PropertyRef Name="SUPPLIER_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="StoreStoreContainer" CdmEntityContainer="EntityStore">
+          <EntitySetMapping Name="COUNTRIES">
+            <EntityTypeMapping TypeName="Store.COUNTRY">
+              <MappingFragment StoreEntitySet="COUNTRIES">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="REGION_ID" ColumnName="REGION_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CUSTOMERS">
+            <EntityTypeMapping TypeName="Store.CUSTOMER">
+              <MappingFragment StoreEntitySet="CUSTOMERS">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="DOOR" ColumnName="DOOR" />
+                <ScalarProperty Name="STREET" ColumnName="STREET" />
+                <ScalarProperty Name="TELEPHONE" ColumnName="TELEPHONE" />
+                <ScalarProperty Name="LOCALITY" ColumnName="LOCALITY" />
+                <ScalarProperty Name="PROVINCE" ColumnName="PROVINCE" />
+                <ScalarProperty Name="CP" ColumnName="CP" />
+                <ScalarProperty Name="BANK_ACCOUNT" ColumnName="BANK_ACCOUNT" />
+                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+                <ScalarProperty Name="COUNTRY" ColumnName="COUNTRY" />
+                <ScalarProperty Name="COMPANY_STATE" ColumnName="COMPANY_STATE" />
+                <ScalarProperty Name="CONTACT_PERSON" ColumnName="CONTACT_PERSON" />
+                <ScalarProperty Name="TIF_PERS_CONTACT" ColumnName="TIF_PERS_CONTACT" />
+                <ScalarProperty Name="RATIO_CONFIDENCE" ColumnName="RATIO_CONFIDENCE" />
+                <ScalarProperty Name="REPRESENTATIVE" ColumnName="REPRESENTATIVE" />
+                <ScalarProperty Name="FAX" ColumnName="FAX" />
+                <ScalarProperty Name="DNI" ColumnName="DNI" />
+                <ScalarProperty Name="EMPLOYEE_ID" ColumnName="EMPLOYEE_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DEPOT_PRODUCTS">
+            <EntityTypeMapping TypeName="Store.DEPOT_PRODUCTS">
+              <MappingFragment StoreEntitySet="DEPOT_PRODUCTS">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="STOCK" ColumnName="STOCK" />
+                <ScalarProperty Name="ASSIGNED_STOCK" ColumnName="ASSIGNED_STOCK" />
+                <ScalarProperty Name="DEPOT_ID" ColumnName="DEPOT_ID" />
+                <ScalarProperty Name="PRODUCT_ID" ColumnName="PRODUCT_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DEPOTS">
+            <EntityTypeMapping TypeName="Store.DEPOT">
+              <MappingFragment StoreEntitySet="DEPOTS">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="ADDRESS" ColumnName="ADDRESS" />
+                <ScalarProperty Name="TELEPHONE" ColumnName="TELEPHONE" />
+                <ScalarProperty Name="COUNTRY" ColumnName="COUNTRY" />
+                <ScalarProperty Name="FAX" ColumnName="FAX" />
+                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+                <ScalarProperty Name="REGION_ID" ColumnName="REGION_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EMPLOYEES">
+            <EntityTypeMapping TypeName="Store.EMPLOYEE">
+              <MappingFragment StoreEntitySet="EMPLOYEES">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="LOGIN" ColumnName="LOGIN" />
+                <ScalarProperty Name="PASSWORD" ColumnName="PASSWORD" />
+                <ScalarProperty Name="CHARGE" ColumnName="CHARGE" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="TELEPHONE" ColumnName="TELEPHONE" />
+                <ScalarProperty Name="DEPOT_ID" ColumnName="DEPOT_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="INCIDENTS">
+            <EntityTypeMapping TypeName="Store.INCIDENT">
+              <MappingFragment StoreEntitySet="INCIDENTS">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="DATED" ColumnName="DATED" />
+                <ScalarProperty Name="OBSERVATIONS" ColumnName="OBSERVATIONS" />
+                <ScalarProperty Name="EMPLOYEE_ID" ColumnName="EMPLOYEE_ID" />
+                <ScalarProperty Name="ORDER_ID" ColumnName="ORDER_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ORDER_LINES">
+            <EntityTypeMapping TypeName="Store.ORDER_LINES">
+              <MappingFragment StoreEntitySet="ORDER_LINES">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="CANTIDAD" ColumnName="CANTIDAD" />
+                <ScalarProperty Name="PRECIO" ColumnName="PRECIO" />
+                <ScalarProperty Name="ASSIGNED_AMOUNT" ColumnName="ASSIGNED_AMOUNT" />
+                <ScalarProperty Name="ORDER_ID" ColumnName="ORDER_ID" />
+                <ScalarProperty Name="PRODUCT_ID" ColumnName="PRODUCT_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ORDERS">
+            <EntityTypeMapping TypeName="Store.ORDER">
+              <MappingFragment StoreEntitySet="ORDERS">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="CP_ENVIO" ColumnName="CP_ENVIO" />
+                <ScalarProperty Name="SENDING_COUNTRY" ColumnName="SENDING_COUNTRY" />
+                <ScalarProperty Name="SENDING_DOOR" ColumnName="SENDING_DOOR" />
+                <ScalarProperty Name="SENDING_NUMBER" ColumnName="SENDING_NUMBER" />
+                <ScalarProperty Name="SENDING_STREET" ColumnName="SENDING_STREET" />
+                <ScalarProperty Name="PAYMENT_FORM" ColumnName="PAYMENT_FORM" />
+                <ScalarProperty Name="ELABORATION_DATE" ColumnName="ELABORATION_DATE" />
+                <ScalarProperty Name="CHECK_DEPOT_DATE" ColumnName="CHECK_DEPOT_DATE" />
+                <ScalarProperty Name="ATTENTION_DATE" ColumnName="ATTENTION_DATE" />
+                <ScalarProperty Name="SENDING_LIST_DATE" ColumnName="SENDING_LIST_DATE" />
+                <ScalarProperty Name="STORAGE_DEPOT_DATE" ColumnName="STORAGE_DEPOT_DATE" />
+                <ScalarProperty Name="EMPLOYEE_ID" ColumnName="EMPLOYEE_ID" />
+                <ScalarProperty Name="CUSTOMER_ID" ColumnName="CUSTOMER_ID" />
+                <ScalarProperty Name="STATE" ColumnName="STATE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PRODUCTS">
+            <EntityTypeMapping TypeName="Store.PRODUCT">
+              <MappingFragment StoreEntitySet="PRODUCTS">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="PRICE" ColumnName="PRICE" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+                <ScalarProperty Name="REASONABLE_MAX" ColumnName="REASONABLE_MAX" />
+                <ScalarProperty Name="SUPPLIER_ID" ColumnName="SUPPLIER_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="REGIONS">
+            <EntityTypeMapping TypeName="Store.REGION">
+              <MappingFragment StoreEntitySet="REGIONS">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SUPPLIERS">
+            <EntityTypeMapping TypeName="Store.SUPPLIER">
+              <MappingFragment StoreEntitySet="SUPPLIERS">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="DNI" ColumnName="DNI" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="TELEPHONE" ColumnName="TELEPHONE" />
+                <ScalarProperty Name="ADDRESS" ColumnName="ADDRESS" />
+                <ScalarProperty Name="DOOR" ColumnName="DOOR" />
+                <ScalarProperty Name="LOCALITY" ColumnName="LOCALITY" />
+                <ScalarProperty Name="PROVINCE" ColumnName="PROVINCE" />
+                <ScalarProperty Name="CP" ColumnName="CP" />
+                <ScalarProperty Name="COUNTRY" ColumnName="COUNTRY" />
+                <ScalarProperty Name="FAX" ColumnName="FAX" />
+                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="USERS">
+            <EntityTypeMapping TypeName="Store.USER">
+              <MappingFragment StoreEntitySet="USERS">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="PASSWORD" ColumnName="PASSWORD" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="Store" ZoomLevel="74">
+        <EntityTypeShape EntityType="Store.COUNTRY" Width="1.5" PointX="3" PointY="3.25" Height="1.7879850260416674" IsExpanded="true" />
+        <EntityTypeShape EntityType="Store.CUSTOMER" Width="1.5" PointX="7.5" PointY="8.875" Height="5.057109375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Store.DEPOT_PRODUCTS" Width="1.5" PointX="5.25" PointY="6.125" Height="2.3648893229166665" IsExpanded="true" />
+        <EntityTypeShape EntityType="Store.DEPOT" Width="1.5" PointX="3" PointY="6.75" Height="3.1340950520833326" IsExpanded="true" />
+        <EntityTypeShape EntityType="Store.EMPLOYEE" Width="1.5" PointX="5.25" PointY="9.875" Height="3.1340950520833317" IsExpanded="true" />
+        <EntityTypeShape EntityType="Store.INCIDENT" Width="1.5" PointX="12" PointY="10.25" Height="2.3648893229166674" IsExpanded="true" />
+        <EntityTypeShape EntityType="Store.ORDER_LINES" Width="1.5" PointX="15" PointY="10.125" Height="2.5571907552083317" IsExpanded="true" />
+        <EntityTypeShape EntityType="Store.ORDER" Width="1.5" PointX="9.75" PointY="9.125" Height="4.6725065104166674" IsExpanded="true" />
+        <EntityTypeShape EntityType="Store.PRODUCT" Width="1.5" PointX="3" PointY="12" Height="2.7494921874999996" IsExpanded="true" />
+        <EntityTypeShape EntityType="Store.REGION" Width="1.5" PointX="0.75" PointY="6.125" Height="1.7879850260416674" IsExpanded="true" />
+        <EntityTypeShape EntityType="Store.SUPPLIER" Width="1.5" PointX="0.75" PointY="11.625" Height="3.5186979166666745" IsExpanded="true" />
+        <EntityTypeShape EntityType="Store.USER" Width="1.5" PointX="0.75" PointY="0.75" Height="1.5956835937500031" IsExpanded="true" />
+        <AssociationConnector Association="Store.SYS_C007607" ManuallyRouted="false">
+          <ConnectorPoint PointX="1.5" PointY="6.125" />
+          <ConnectorPoint PointX="1.5" PointY="4.1439925130208337" />
+          <ConnectorPoint PointX="3" PointY="4.1439925130208337" />
+        </AssociationConnector>
+        <AssociationConnector Association="Store.CUSTOMERS_EMPLOYEES_FK1" ManuallyRouted="false">
+          <ConnectorPoint PointX="6.75" PointY="11.442047526041666" />
+          <ConnectorPoint PointX="7.166666666666667" PointY="11.442047526041666" />
+          <ConnectorPoint PointX="7.333333333333333" PointY="11.442047526041666" />
+          <ConnectorPoint PointX="7.5" PointY="11.442047526041666" />
+        </AssociationConnector>
+        <AssociationConnector Association="Store.SYS_C007618" ManuallyRouted="false">
+          <ConnectorPoint PointX="9" PointY="11.461253255208334" />
+          <ConnectorPoint PointX="9.75" PointY="11.461253255208334" />
+        </AssociationConnector>
+        <AssociationConnector Association="Store.SYS_C007609" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="7.6199446614583337" />
+          <ConnectorPoint PointX="4.791666666666667" PointY="7.6199446614583328" />
+          <ConnectorPoint PointX="4.958333333333333" PointY="7.6199446614583337" />
+          <ConnectorPoint PointX="5.25" PointY="7.6199446614583337" />
+        </AssociationConnector>
+        <AssociationConnector Association="Store.SYS_C007610" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="12.001152846377364" />
+          <ConnectorPoint PointX="4.875" PointY="11.626152846377366" />
+          <ConnectorPoint PointX="4.875" PointY="6.8412203307291666" />
+          <ConnectorPoint PointX="5.25" PointY="6.8412203307291666" />
+        </AssociationConnector>
+        <AssociationConnector Association="Store.SYS_C007611" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="7.3314925130208337" />
+          <ConnectorPoint PointX="3" PointY="7.3314925130208337" />
+        </AssociationConnector>
+        <AssociationConnector Association="Store.SYS_C007612" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="9.82178635977564" />
+          <ConnectorPoint PointX="4.8160744349011217" PointY="10.13786079467676" />
+          <ConnectorPoint PointX="4.9339255650988791" PointY="10.255711924874518" />
+          <ConnectorPoint PointX="5.0625" PointY="10.38428635977564" />
+          <ConnectorPoint PointX="5.0625" PointY="9.6863471538461532" />
+          <ConnectorPoint PointX="5.2511528461538459" PointY="9.875" />
+        </AssociationConnector>
+        <AssociationConnector Association="Store.SYS_C007613" ManuallyRouted="false">
+          <ConnectorPoint PointX="6" PointY="13.009095052083332" />
+          <ConnectorPoint PointX="6" PointY="14.182109375" />
+          <ConnectorPoint PointX="7.166666666666667" PointY="14.182109375" />
+          <ConnectorPoint PointX="7.333333333333333" PointY="14.182109375" />
+          <ConnectorPoint PointX="10.416666666666666" PointY="14.182109375" />
+          <ConnectorPoint PointX="10.583333333333334" PointY="14.182109375" />
+          <ConnectorPoint PointX="11.625" PointY="14.182109375" />
+          <ConnectorPoint PointX="11.625" PointY="11.432444661458334" />
+          <ConnectorPoint PointX="12" PointY="11.432444661458334" />
+        </AssociationConnector>
+        <AssociationConnector Association="Store.SYS_C007617" ManuallyRouted="false">
+          <ConnectorPoint PointX="6.75" PointY="10.627271763020833" />
+          <ConnectorPoint PointX="7.25" PointY="10.627271763020833" />
+          <ConnectorPoint PointX="7.25" PointY="14.432109375" />
+          <ConnectorPoint PointX="10.5" PointY="14.432109375" />
+          <ConnectorPoint PointX="10.5" PointY="13.797506510416667" />
+        </AssociationConnector>
+        <AssociationConnector Association="Store.SYS_C007614" ManuallyRouted="false">
+          <ConnectorPoint PointX="11.25" PointY="10.778722330729167" />
+          <ConnectorPoint PointX="12" PointY="10.778722330729167" />
+        </AssociationConnector>
+        <AssociationConnector Association="Store.SYS_C007615" ManuallyRouted="false">
+          <ConnectorPoint PointX="11.25" PointY="10.15625" />
+          <ConnectorPoint PointX="15" PointY="10.15625" />
+        </AssociationConnector>
+        <AssociationConnector Association="Store.SYS_C007616" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="14.590800781138242" />
+          <ConnectorPoint PointX="15.75" PointY="14.590800781138242" />
+          <ConnectorPoint PointX="15.75" PointY="12.682190755208332" />
+        </AssociationConnector>
+        <AssociationConnector Association="Store.SYS_C007619" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="13.37474609375" />
+          <ConnectorPoint PointX="3" PointY="13.37474609375" />
+        </AssociationConnector>
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

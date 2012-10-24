@@ -1,0 +1,169 @@
+﻿@model MvcStore2.Models.CUSTOMER
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>CUSTOMER</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.NAME)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.NAME)
+            @Html.ValidationMessageFor(model => model.NAME)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.DOOR)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.DOOR)
+            @Html.ValidationMessageFor(model => model.DOOR)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.STREET)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.STREET)
+            @Html.ValidationMessageFor(model => model.STREET)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.TELEPHONE)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.TELEPHONE)
+            @Html.ValidationMessageFor(model => model.TELEPHONE)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.LOCALITY)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.LOCALITY)
+            @Html.ValidationMessageFor(model => model.LOCALITY)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.PROVINCE)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.PROVINCE)
+            @Html.ValidationMessageFor(model => model.PROVINCE)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.CP)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.CP)
+            @Html.ValidationMessageFor(model => model.CP)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.BANK_ACCOUNT)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.BANK_ACCOUNT)
+            @Html.ValidationMessageFor(model => model.BANK_ACCOUNT)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.EMAIL)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.EMAIL)
+            @Html.ValidationMessageFor(model => model.EMAIL)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.COUNTRY)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.COUNTRY)
+            @Html.ValidationMessageFor(model => model.COUNTRY)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.COMPANY_STATE)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.COMPANY_STATE)
+            @Html.ValidationMessageFor(model => model.COMPANY_STATE)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.CONTACT_PERSON)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.CONTACT_PERSON)
+            @Html.ValidationMessageFor(model => model.CONTACT_PERSON)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.TIF_PERS_CONTACT)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.TIF_PERS_CONTACT)
+            @Html.ValidationMessageFor(model => model.TIF_PERS_CONTACT)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.RATIO_CONFIDENCE)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.RATIO_CONFIDENCE)
+            @Html.ValidationMessageFor(model => model.RATIO_CONFIDENCE)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.REPRESENTATIVE)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.REPRESENTATIVE)
+            @Html.ValidationMessageFor(model => model.REPRESENTATIVE)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.FAX)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.FAX)
+            @Html.ValidationMessageFor(model => model.FAX)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.DNI)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.DNI)
+            @Html.ValidationMessageFor(model => model.DNI)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.EMPLOYEE_ID, "EMPLOYEE")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("EMPLOYEE_ID", String.Empty)
+            @Html.ValidationMessageFor(model => model.EMPLOYEE_ID)
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

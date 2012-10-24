@@ -1,0 +1,112 @@
+﻿@model MvcStore2.Models.CUSTOMER
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Sales.cshtml";
+}
+
+<h2>Details by DNI</h2>
+
+<fieldset>
+    <legend>CUSTOMER</legend>
+
+    <div class="display-label">NAME</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.NAME)
+    </div>
+
+    <div class="display-label">DOOR</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.DOOR)
+    </div>
+
+    <div class="display-label">STREET</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.STREET)
+    </div>
+
+    <div class="display-label">TELEPHONE</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.TELEPHONE)
+    </div>
+
+    <div class="display-label">LOCALITY</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.LOCALITY)
+    </div>
+
+    <div class="display-label">PROVINCE</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PROVINCE)
+    </div>
+
+    <div class="display-label">CP</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CP)
+    </div>
+
+    <div class="display-label">BANK_ACCOUNT</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.BANK_ACCOUNT)
+    </div>
+
+    <div class="display-label">EMAIL</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.EMAIL)
+    </div>
+
+    <div class="display-label">COUNTRY</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.COUNTRY)
+    </div>
+
+    <div class="display-label">COMPANY_STATE</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.COMPANY_STATE)
+    </div>
+
+    <div class="display-label">CONTACT_PERSON</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CONTACT_PERSON)
+    </div>
+
+    <div class="display-label">TIF_PERS_CONTACT</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.TIF_PERS_CONTACT)
+    </div>
+
+    <div class="display-label">RATIO_CONFIDENCE</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.RATIO_CONFIDENCE)
+    </div>
+
+    <div class="display-label">REPRESENTATIVE</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.REPRESENTATIVE)
+    </div>
+
+    <div class="display-label">FAX</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.FAX)
+    </div>
+
+    <div class="display-label">DNI</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.DNI)
+    </div>
+
+    <div class="display-label">EMPLOYEE</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.EMPLOYEE.LOGIN)
+    </div>
+</fieldset>
+
+<fieldset>
+    <legend>CUSTOMER</legend>
+    @Html.Partial("_Orders")
+</fieldset>
+
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

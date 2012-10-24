@@ -1,0 +1,46 @@
+﻿@model MvcStore2.Models.EMPLOYEE
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Depot.cshtml";
+}
+
+<h2>Detalles</h2>
+
+<fieldset>
+    <legend>REPRESENTANTE DE VENTAS</legend>
+
+    <div class="display-label">USUARIO</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.LOGIN)
+    </div>
+
+    <div class="display-label">CONTRASEÑA</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PASSWORD)
+    </div>
+
+    <div class="display-label">CARGO</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CHARGE)
+    </div>
+
+    <div class="display-label">NOMBRE</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.NAME)
+    </div>
+
+    <div class="display-label">TELEFONO</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.TELEPHONE)
+    </div>
+
+    <div class="display-label">ALMACEN</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.DEPOT.NAME)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id=Model.ID }) |
+    @Html.ActionLink("Regresar", "Index")
+</p>

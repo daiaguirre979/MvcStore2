@@ -1,0 +1,168 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="StoreStoreContainer" CdmEntityContainer="EntityStore">
+    <EntitySetMapping Name="COUNTRIES">
+      <EntityTypeMapping TypeName="Store.COUNTRY">
+        <MappingFragment StoreEntitySet="COUNTRIES">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="REGION_ID" ColumnName="REGION_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CUSTOMERS">
+      <EntityTypeMapping TypeName="Store.CUSTOMER">
+        <MappingFragment StoreEntitySet="CUSTOMERS">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="DOOR" ColumnName="DOOR" />
+          <ScalarProperty Name="STREET" ColumnName="STREET" />
+          <ScalarProperty Name="TELEPHONE" ColumnName="TELEPHONE" />
+          <ScalarProperty Name="LOCALITY" ColumnName="LOCALITY" />
+          <ScalarProperty Name="PROVINCE" ColumnName="PROVINCE" />
+          <ScalarProperty Name="CP" ColumnName="CP" />
+          <ScalarProperty Name="BANK_ACCOUNT" ColumnName="BANK_ACCOUNT" />
+          <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+          <ScalarProperty Name="COUNTRY" ColumnName="COUNTRY" />
+          <ScalarProperty Name="COMPANY_STATE" ColumnName="COMPANY_STATE" />
+          <ScalarProperty Name="CONTACT_PERSON" ColumnName="CONTACT_PERSON" />
+          <ScalarProperty Name="TIF_PERS_CONTACT" ColumnName="TIF_PERS_CONTACT" />
+          <ScalarProperty Name="RATIO_CONFIDENCE" ColumnName="RATIO_CONFIDENCE" />
+          <ScalarProperty Name="REPRESENTATIVE" ColumnName="REPRESENTATIVE" />
+          <ScalarProperty Name="FAX" ColumnName="FAX" />
+          <ScalarProperty Name="DNI" ColumnName="DNI" />
+          <ScalarProperty Name="EMPLOYEE_ID" ColumnName="EMPLOYEE_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DEPOT_PRODUCTS">
+      <EntityTypeMapping TypeName="Store.DEPOT_PRODUCTS">
+        <MappingFragment StoreEntitySet="DEPOT_PRODUCTS">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="STOCK" ColumnName="STOCK" />
+          <ScalarProperty Name="ASSIGNED_STOCK" ColumnName="ASSIGNED_STOCK" />
+          <ScalarProperty Name="DEPOT_ID" ColumnName="DEPOT_ID" />
+          <ScalarProperty Name="PRODUCT_ID" ColumnName="PRODUCT_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DEPOTS">
+      <EntityTypeMapping TypeName="Store.DEPOT">
+        <MappingFragment StoreEntitySet="DEPOTS">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="ADDRESS" ColumnName="ADDRESS" />
+          <ScalarProperty Name="TELEPHONE" ColumnName="TELEPHONE" />
+          <ScalarProperty Name="COUNTRY" ColumnName="COUNTRY" />
+          <ScalarProperty Name="FAX" ColumnName="FAX" />
+          <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+          <ScalarProperty Name="REGION_ID" ColumnName="REGION_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EMPLOYEES">
+      <EntityTypeMapping TypeName="Store.EMPLOYEE">
+        <MappingFragment StoreEntitySet="EMPLOYEES">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="LOGIN" ColumnName="LOGIN" />
+          <ScalarProperty Name="PASSWORD" ColumnName="PASSWORD" />
+          <ScalarProperty Name="CHARGE" ColumnName="CHARGE" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="TELEPHONE" ColumnName="TELEPHONE" />
+          <ScalarProperty Name="DEPOT_ID" ColumnName="DEPOT_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="INCIDENTS">
+      <EntityTypeMapping TypeName="Store.INCIDENT">
+        <MappingFragment StoreEntitySet="INCIDENTS">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="DATED" ColumnName="DATED" />
+          <ScalarProperty Name="OBSERVATIONS" ColumnName="OBSERVATIONS" />
+          <ScalarProperty Name="EMPLOYEE_ID" ColumnName="EMPLOYEE_ID" />
+          <ScalarProperty Name="ORDER_ID" ColumnName="ORDER_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ORDER_LINES">
+      <EntityTypeMapping TypeName="Store.ORDER_LINES">
+        <MappingFragment StoreEntitySet="ORDER_LINES">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="CANTIDAD" ColumnName="CANTIDAD" />
+          <ScalarProperty Name="PRECIO" ColumnName="PRECIO" />
+          <ScalarProperty Name="ASSIGNED_AMOUNT" ColumnName="ASSIGNED_AMOUNT" />
+          <ScalarProperty Name="ORDER_ID" ColumnName="ORDER_ID" />
+          <ScalarProperty Name="PRODUCT_ID" ColumnName="PRODUCT_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ORDERS">
+      <EntityTypeMapping TypeName="Store.ORDER">
+        <MappingFragment StoreEntitySet="ORDERS">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="CP_ENVIO" ColumnName="CP_ENVIO" />
+          <ScalarProperty Name="SENDING_COUNTRY" ColumnName="SENDING_COUNTRY" />
+          <ScalarProperty Name="SENDING_DOOR" ColumnName="SENDING_DOOR" />
+          <ScalarProperty Name="SENDING_NUMBER" ColumnName="SENDING_NUMBER" />
+          <ScalarProperty Name="SENDING_STREET" ColumnName="SENDING_STREET" />
+          <ScalarProperty Name="PAYMENT_FORM" ColumnName="PAYMENT_FORM" />
+          <ScalarProperty Name="ELABORATION_DATE" ColumnName="ELABORATION_DATE" />
+          <ScalarProperty Name="CHECK_DEPOT_DATE" ColumnName="CHECK_DEPOT_DATE" />
+          <ScalarProperty Name="ATTENTION_DATE" ColumnName="ATTENTION_DATE" />
+          <ScalarProperty Name="SENDING_LIST_DATE" ColumnName="SENDING_LIST_DATE" />
+          <ScalarProperty Name="STORAGE_DEPOT_DATE" ColumnName="STORAGE_DEPOT_DATE" />
+          <ScalarProperty Name="EMPLOYEE_ID" ColumnName="EMPLOYEE_ID" />
+          <ScalarProperty Name="CUSTOMER_ID" ColumnName="CUSTOMER_ID" />
+          <ScalarProperty Name="STATE" ColumnName="STATE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PRODUCTS">
+      <EntityTypeMapping TypeName="Store.PRODUCT">
+        <MappingFragment StoreEntitySet="PRODUCTS">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="PRICE" ColumnName="PRICE" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+          <ScalarProperty Name="REASONABLE_MAX" ColumnName="REASONABLE_MAX" />
+          <ScalarProperty Name="SUPPLIER_ID" ColumnName="SUPPLIER_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="REGIONS">
+      <EntityTypeMapping TypeName="Store.REGION">
+        <MappingFragment StoreEntitySet="REGIONS">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SUPPLIERS">
+      <EntityTypeMapping TypeName="Store.SUPPLIER">
+        <MappingFragment StoreEntitySet="SUPPLIERS">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="DNI" ColumnName="DNI" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="TELEPHONE" ColumnName="TELEPHONE" />
+          <ScalarProperty Name="ADDRESS" ColumnName="ADDRESS" />
+          <ScalarProperty Name="DOOR" ColumnName="DOOR" />
+          <ScalarProperty Name="LOCALITY" ColumnName="LOCALITY" />
+          <ScalarProperty Name="PROVINCE" ColumnName="PROVINCE" />
+          <ScalarProperty Name="CP" ColumnName="CP" />
+          <ScalarProperty Name="COUNTRY" ColumnName="COUNTRY" />
+          <ScalarProperty Name="FAX" ColumnName="FAX" />
+          <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="USERS">
+      <EntityTypeMapping TypeName="Store.USER">
+        <MappingFragment StoreEntitySet="USERS">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="PASSWORD" ColumnName="PASSWORD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,33 @@
+﻿@model IEnumerable<MvcStore2.Models.REGION>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+
+<h2>Regiones</h2>
+
+<p>
+    @Html.ActionLink("Nueva Region", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            NOMBRE
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.NAME)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id=item.ID }) |            
+            @Html.ActionLink("Borrar", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>

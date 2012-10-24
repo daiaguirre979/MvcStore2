@@ -1,0 +1,135 @@
+﻿@model IEnumerable<MvcStore2.Models.CUSTOMER>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            NAME
+        </th>
+        <th>
+            DOOR
+        </th>
+        <th>
+            STREET
+        </th>
+        <th>
+            TELEPHONE
+        </th>
+        <th>
+            LOCALITY
+        </th>
+        <th>
+            PROVINCE
+        </th>
+        <th>
+            CP
+        </th>
+        <th>
+            BANK_ACCOUNT
+        </th>
+        <th>
+            EMAIL
+        </th>
+        <th>
+            COUNTRY
+        </th>
+        <th>
+            COMPANY_STATE
+        </th>
+        <th>
+            CONTACT_PERSON
+        </th>
+        <th>
+            TIF_PERS_CONTACT
+        </th>
+        <th>
+            RATIO_CONFIDENCE
+        </th>
+        <th>
+            REPRESENTATIVE
+        </th>
+        <th>
+            FAX
+        </th>
+        <th>
+            DNI
+        </th>
+        <th>
+            EMPLOYEE
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.NAME)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DOOR)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.STREET)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TELEPHONE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LOCALITY)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PROVINCE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CP)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BANK_ACCOUNT)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EMAIL)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.COUNTRY)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.COMPANY_STATE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CONTACT_PERSON)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TIF_PERS_CONTACT)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RATIO_CONFIDENCE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.REPRESENTATIVE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FAX)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DNI)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EMPLOYEE.LOGIN)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>

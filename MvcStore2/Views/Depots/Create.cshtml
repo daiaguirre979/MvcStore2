@@ -1,0 +1,82 @@
+﻿@model MvcStore2.Models.DEPOT
+
+@{
+    ViewBag.Title = "Crear";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+
+<h2>Crear</h2>
+
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>ALMACEN</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.NAME, "NOMBRE")
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.NAME)
+            @Html.ValidationMessageFor(model => model.NAME)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ADDRESS, "DIRECCION")
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ADDRESS)
+            @Html.ValidationMessageFor(model => model.ADDRESS)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.TELEPHONE, "TELEFONO")
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.TELEPHONE)
+            @Html.ValidationMessageFor(model => model.TELEPHONE)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.COUNTRY, "PAIS")
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.COUNTRY)
+            @Html.ValidationMessageFor(model => model.COUNTRY)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.FAX,"FAX")
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.FAX)
+            @Html.ValidationMessageFor(model => model.FAX)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.EMAIL,"EMAIL")
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.EMAIL)
+            @Html.ValidationMessageFor(model => model.EMAIL)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.REGION_ID, "REGION")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("REGION_ID", String.Empty)
+            @Html.ValidationMessageFor(model => model.REGION_ID)
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Regresar", "Index")
+</div>

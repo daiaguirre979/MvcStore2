@@ -1,0 +1,64 @@
+﻿@model IEnumerable<MvcStore2.Models.EMPLOYEE>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Depot.cshtml";
+}
+
+<h2>Indice</h2>
+
+<p>
+    @Html.ActionLink("Nuevo Representate de Ventas", "Create")
+</p>
+<table class="large">
+    <tr>
+        <th>
+            USUARIO
+        </th>
+        <th>
+            CONTRASEÑA
+        </th>
+        <th>
+            CARGO
+        </th>
+        <th>
+            NOMBRE
+        </th>
+        <th>
+            TELEFONO
+        </th>
+        <th>
+            ALMACEN
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.LOGIN)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PASSWORD)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CHARGE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NAME)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TELEPHONE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DEPOT.NAME)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Detalles", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Borrar", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>

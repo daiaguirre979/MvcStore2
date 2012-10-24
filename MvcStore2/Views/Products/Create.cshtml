@@ -1,0 +1,66 @@
+﻿@model MvcStore2.Models.PRODUCT
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Depot.cshtml";
+}
+
+<h2>Create</h2>
+
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>PRODUCT</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.PRICE)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.PRICE)
+            @Html.ValidationMessageFor(model => model.PRICE)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.NAME)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.NAME)
+            @Html.ValidationMessageFor(model => model.NAME)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.DESCRIPTION)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.DESCRIPTION)
+            @Html.ValidationMessageFor(model => model.DESCRIPTION)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.REASONABLE_MAX)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.REASONABLE_MAX)
+            @Html.ValidationMessageFor(model => model.REASONABLE_MAX)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.SUPPLIER_ID, "SUPPLIER")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("SUPPLIER_ID", String.Empty)
+            @Html.ValidationMessageFor(model => model.SUPPLIER_ID)
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
